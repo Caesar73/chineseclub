@@ -1,0 +1,25 @@
+
+
+
+    <% _.each(items, function (item) { %>
+    <div class="ui-collapsible-set ui-corner-all">
+        <div class="ui-collapsible-inset">
+            <h3 class="ui-collapsible-heading">
+                <a href="javascript:void(0);" class="ui-collapsible-heading-toggle">
+                    <%= item.title %>
+                </a>
+            </h3>
+            <div class="ui-collapsible-list">
+                <% _.each(item.lessons, function (lesson, i) { %>
+                <a href="#lesson/webapp/<%= type %>/<%= lesson.id %>" class="ui-collapsible-content">
+                    <p>Lesson <%= (i+1) %></p>
+                    <p><%= lesson.title %></p>
+                </a>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+
+
+

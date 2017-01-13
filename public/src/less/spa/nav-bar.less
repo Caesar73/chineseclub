@@ -1,0 +1,78 @@
+
+
+.mod-navs {
+    position: fixed;
+    z-index: 150;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5rem;
+    background-color: rgba(246,246,246,.95);
+
+    li {
+        display: list-item;
+        // text-align: -webkit-match-parent;
+        width: 25%;
+    }
+
+}
+
+.mod-navs .navs-item {
+    background-color: rgba(246,246,246,.95);
+    background: no-repeat center .6rem;
+    background-size: auto 2rem;
+    color: #777;
+    float: left;
+    font-size: 1.2rem;
+    text-align: center;
+
+    position: relative;
+    top: 0;
+    left: 0;
+
+    height: 3rem;
+
+    span {
+        display: block;
+        line-height: 2rem;
+        margin-top: 3rem;
+    }
+
+}
+
+.mod-navs .navs-item-home {
+    background-image: url(/img/m/home-d.png);
+}
+.mod-navs .navs-item-home.navs-current {
+    background-image: url(/img/m/home-c.png);
+}
+
+.mod-navs .navs-item-menu {
+    background-image: url(/img/m/menu-d.png);
+}
+.mod-navs .navs-item-menu.navs-current {
+    background-image: url(/img/m/menu-c.png);
+}
+
+.mod-navs .navs-item-cart {
+    background-image: url(/img/m/cart-d.png);
+}
+.mod-navs .navs-item-cart.navs-current {
+    background-image: url(/img/m/cart-c.png);
+}
+
+.mod-navs .navs-item-mine {
+    background-image: url(/img/m/mine-d.png);
+}
+.mod-navs .navs-item-mine.navs-current {
+    background-image: url(/img/m/mine-c.png);
+}
+
+.mod-navs .navs-current {
+    -webkit-animation-duration: .75s;
+    -webkit-animation-name: kf_mod_navs;
+}
+
+
+
+

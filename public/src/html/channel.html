@@ -1,0 +1,613 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="N1Mmy9oxtXl-osJ42t8eKkf6Gj3NdFPm9dYdSEb7GFc">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+<link rel="apple-touch-icon-precomposed" href="http://s2.pstatp.com/r2/image/app/news_article_mobile.png">
+<link rel="shortcut icon" href="http://s2.pstatp.com/image/toutiao_mobile/short_cut_icon.png" type="image/x-icon">
+<meta name="format-detection" content="telephone=no">
+
+<meta name="description" content="">
+<meta name="keywords" content="觅拓,东欧,觅拓东欧">
+<link rel="stylesheet" href="/dist/webapp/css/phooer.css">
+<script src="http://s2.pstatp.com/js/lib/jquery-2.0.0.min.js"></script>
+<script>
+/*** Timeago is a jQuery plugin that makes it easy to support automatically***/
+
+/** jqModal - Minimalist Modaling with jQuery  (http://dev.iceburg.net/jquery/jqModal/) **/
+
+//jquery cookie plugin
+jQuery.cookie=function(name,value,options){if(typeof value!="undefined"){options=options||{};if(value===null){value="";options.expires=-1}var expires="";if(options.expires&&(typeof options.expires=="number"||options.expires.toUTCString)){var date;if(typeof options.expires=="number"){date=new Date();date.setTime(date.getTime()+(options.expires))}else{date=options.expires}expires="; expires="+date.toUTCString()}var path=options.path?"; path="+options.path:"";var domain=options.domain?"; domain="+options.domain:"";var secure=options.secure?"; secure":"";document.cookie=[name,"=",encodeURIComponent(value),expires,path,domain,secure].join("")}else{var cookieValue=null;if(document.cookie&&document.cookie!=""){var cookies=document.cookie.split(";");for(var i=0;i<cookies.length;i++){var cookie=jQuery.trim(cookies[i]);if(cookie.substring(0,name.length+1)==(name+"=")){cookieValue=decodeURIComponent(cookie.substring(name.length+1));break}}}return cookieValue}};
+
+//检测系统设定
+//mobile safari中设置"不跟踪cookie", 不会禁用cookie,而会禁用localstrage.
+//呵呵
+;(function(){try{var t = window.localStorage; window.localStorageEnabled = true}catch (e) {window.localStorageEnabled = false}})();
+
+
+//为app内嵌页面发送友盟事件
+// function sendCustomEvents(thelabel,theevent,thevalue){
+//     var e = $.browser.ios? "custom":"log";
+//     var s = "bytedance://"+e+"_event?category=umeng&label="+thelabel+"&tag="+theevent;
+//     if(thevalue) s = s+"&value="+thevalue;
+//     console.log(s);
+//     location.href = s;
+// };
+
+/*
+var localActions = {
+    queueNames : "localActions,delayedActions",
+    delayedInterval : null,
+    queues : {},
+
+    getStoredQueues : function(){
+        var savedQueue = localStorage['queues'];
+        if(savedQueue == "undefined" || savedQueue == undefined) savedQueue = {};
+        if(typeof savedQueue == "string") savedQueue = JSON.parse(savedQueue);
+        return savedQueue;
+    },
+
+    init : function(){
+        this.Q = this.getStoredQueues();
+        if(navigator.onLine){
+            for(k in this.Q){
+                var queue = this.Q[k];
+                queue.length && this.clear(k)
+            };
+        };
+    },
+
+    add : function(key,obj){
+        var queue = this.Q[key] || [];
+        queue.push(obj);
+        this.save(key,queue);
+
+        var _this = this;
+
+        if(key == "delayedActions" && !this.delayedInterval){
+            this.delayedInterval = setInterval(function(){
+                _this.clear(key);
+                console.log("checkDelayedActions");
+            },3000);
+        }
+    },
+
+    save : function(key,queue){
+        this.Q[key] = queue;
+        localStorage['queues'] = JSON.stringify(this.Q);
+    },
+
+    clear : function(key){
+        var queue = this.Q[key];
+        while(queue.length){
+            var t = queue.shift(),
+                fnname = t['fnname'],
+                params = t['params'],
+                fn = this.callbacks[fnname];
+            if(fn) fn(params);
+        };
+        this.save(key,queue);
+        if(!queue.length && key == "delayedActions") {
+            clearInterval(this.delayedInterval);
+            this.delayedInterval = null;
+        }
+    },
+
+    callbacks : {
+        mediaLike  : function(params, success, fail){
+            var url = "/pgc/"+params.type+"/",
+                data = { "media_id" : params.media_id };
+
+            if(is_api){
+                url = "/api/2"+url;
+                data = $.extend(data,common_params);
+            };
+
+            //alert(JSON.stringify(data));
+
+            $.post(url,data)
+             .fail(ajaxNetworkErrorCallback)
+             .done(function(d){
+                if(d.message == 'success'){
+                    if(success) success();
+                }else{
+                    global_tip(NETWORKTIPS.SERVERERROR);
+                    if(fail) fail();
+                }
+             })
+        },
+
+        repin : function(params){
+            //params :  {type:repin/unrepin,id:xx}
+            var url = "/group/article/"+params.id+"/"+params.type+"/",
+                data = {};
+
+            if(is_api){
+                url = "/2/data/item_action/";
+                data = $.extend({
+                    "group_id" : params.id,
+                    "action"   : params.type
+                },common_params);
+            };
+
+            $.post(url,data)
+             .fail(ajaxNetworkErrorCallback)
+             .done(function(d){
+                if(d.message !== 'success'){ global_tip(NETWORKTIPS.SERVERERROR) }
+             });
+        },
+
+        dislike : function(params){
+            var url = "/api/dislike/",
+                data = {'group_id': params.id,'action':'dislike'};
+
+            if(is_api){
+                url = "/2/data/item_action/";
+                data = $.extend(data,common_params)
+            };
+
+            $.post(url,data)
+             .fail(ajaxNetworkErrorCallback)
+             .done(function(){  global_tip(NETWORKTIPS.RECOMMENDDISLIKE) })
+        },
+
+        actionLog : function(params){
+            if(!params) return;
+            params.tag = params.tag || "headline";
+            var url = "/action_log/",
+                data = {
+                    label : params.label,
+                    value : params.id,
+                    tag   : 'go_detail'
+                };
+
+            if(is_api){
+                url = "/2/wap/action_log/";
+                data = $.extend(data,common_params);
+            };
+
+            $.post(url,data)
+
+             // .done(function(d){
+             //    var s = [];
+             //    for(k in d) s.push(k+":"+d[k]);
+             //    alert(s.join(","))
+             // });
+
+        }
+    },
+
+    networkRequired : function(fnname, params){
+        if(navigator.onLine){
+            var fn = this.callbacks[fnname];
+            if(fn) fn(params);
+        }else{
+            this.add("localActions",{
+                "fnname" : fnname,
+                "params" : params
+            });
+        }
+    },
+
+    execCommand : function(fnname, params, success, fail){
+        var fn = this.callbacks[fnname];
+        if(!fn) return;
+        fn(params, success, fail);
+    }
+};
+
+$(function(){
+    localActions.init();
+});
+
+*/
+//$.request; $.hash
+/*
+$.request=function(paras){var url=location.search; var paraString=url.substring(url.indexOf("?")+1,url.length).split("&"); var paraObj={}; for(i=0;j=paraString[i];i++){paraObj[j.substring(0,j.indexOf("=")).toLowerCase()]=j.substring(j.indexOf("=")+1,j.length) }; if(!paras) return paraObj; var returnValue=paraObj[paras.toLowerCase()]; return returnValue ? $.trim(returnValue) : ""};
+$.hash=function(){var s=location.hash.substr(1),hashQuery={};if(s){var arr=s.split("&");for(var i=0;i<arr.length;i++){var t=arr[i].split("=");hashQuery[t[0]]=t[1]}}if(typeof arguments[0]=="string"){return hashQuery[arguments[0]]}if(typeof arguments[0]=="object"){for(var k in arguments[0]){hashQuery[k]=arguments[0][k]}var s2="";for(var k in hashQuery){s2+=k+"="+hashQuery[k]+"&"}location.href="#"+s2.substring(0,s2.length-1)}};
+$.timestamp=function(){return +new Date()};
+
+
+var is_toutiao =  location.host.indexOf("toutiao.com") >= 0,
+    is_api = location.host.indexOf("snssdk.com") >= 0,
+    ua = navigator.userAgent,
+
+    NETWORKTIPS = {
+        "RETRY"             :   "网络失败,点击重试",
+        "COMMENTRETRY"      :   "评论加载失败,点击重试",
+        "NETWORKERROR"      :   "网络失败",
+        "LOADING"           :   "加载中...",
+        "WAITE"             :   "加载中,请稍后",
+        "RECOMMENDING"      :   "正在推荐...",
+        "RECOMMENDCOUNT"    :   "为您推荐了#n#篇文章",
+        "RECOMMENDEMPTY"    :   "暂无更新,请休息一会儿",
+        "RECOMMENDDISLIKE"  :   "将减少类似推荐",
+        "HASMORE"           :   "查看更多",
+        "SENDING"           :   "正在提交",
+        "SENDINGERROR"      :   "发表失败",
+        "SENDINGSUCCESS"    :   "发表成功",
+        "GEOLOCATIONERROR"  :   "获取地理位置失败",
+        "NOSEARCHDATA"      :   "暂无搜索结果",
+        "SERVERERROR"       :   "服务异常,请稍后重试",
+        "LOCALSTORAGEERROE" :   "请在 设置->Safari->阻止Cookie 中勾选 '来自第三方和广告商',或'永不',以免影响头条网正常使用"
+    };
+
+$.browser = $.browser|| {};
+$.browser.ios = /iPhone|iPod|iPad/i.test(ua);
+$.browser.iphone = /iPhone/i.test(ua);
+$.browser.ipad = /iPad/i.test(ua);
+$.browser.android = /Android/i.test(ua);
+$.browser.android4 = /Android\s4/i.test(ua);
+$.browser.android2 = /Android\s2/i.test(ua);
+
+
+
+var errorimglist = [];
+function errorimg(){
+  errorimglist.push(this.src);
+  console.log("image error :"+this.src);
+  this.style.opacity = "0";
+  //this.src = this.src.replace("//p0","//p").replace("//i0","//i").replace("//v0","//v");
+};
+
+function loadimg(){
+  //console.log("image load :"+this.src);
+  this.style.opacity = "1";
+};
+
+
+function ajaxNetworkErrorCallback(){
+    global_tip(NETWORKTIPS.NETWORKERROR);
+};
+*/
+
+/*
+
+//常用api请求
+function actionLog(label,id){
+    localActions.add("delayedActions",{
+        "fnname" : "actionLog",
+        "params" : {
+            "label"  : label,
+            "id"     : id
+        }
+    });
+};
+
+
+function mediaLike(btn){
+    var $btn = $(btn),
+        media_id = $btn.attr("media-id"),
+        $followers = $("[data-type=media-follower]").filter("[media-id="+media_id+"]"),
+        media_like_stat = $btn.attr("data-action");
+
+    function callback(){
+        media_like_stat == "unlike" ? $btn.attr("data-action","like").text("订阅") : $btn.attr("data-action","unlike").text("已订阅");
+        if($followers.length){
+            var count = parseInt($followers.text());
+            $followers.text(media_like_stat == "unlike" ? count-1 : count+1)
+        };
+        if(typeof from == "string" && from == "media"){
+            function cb(o){};
+            window.ToutiaoJSBridge.call("media_"+media_like_stat,{id:parseInt(media_id)}, cb);
+        };
+    };
+
+    function doAction(){
+        localActions.execCommand("mediaLike",{
+            "media_id": media_id,
+            "type":media_like_stat
+        }, callback);
+
+        var action_label = media_like_stat == "like"?"subscribe":"unsubscribe";
+        actionLog(action_label,media_id);
+    };
+
+    is_api? doAction() : user.loginRequired(doAction);
+};
+
+*/
+
+//工具
+function initScrollEvents(){
+    var scrollEndTimer, offset = 100;
+    function globalScroll(e){
+        var theDocumentHeight = document.height || document.body.scrollHeight;
+
+        if( scrollY >= theDocumentHeight - innerHeight - offset)  $(window).trigger("scrollBottom", e.type);
+        if( e.type == 'scroll'){
+            if(scrollEndTimer) clearTimeout(scrollEndTimer);
+            scrollEndTimer = setTimeout(function(){ $(window).trigger("scrollEnd") },300);
+        }
+    };
+    $(window).on("scroll load afterflow",globalScroll);
+};
+
+animateScrollTo = function(option){
+    var top = 0;
+    if(option){
+        if(option.offset)   top += option.offset;
+        if(option.obj)      top += option.obj.offset().top;
+    };
+    setTimeout(function(){
+        $("html, body").animate({ scrollTop: top }, 400);
+    },0)
+    return this;
+};
+
+window.scrollTop = function(){
+    window.scrollTo(0,0);
+};
+
+function debug(s){
+    var $d = $("#debug");
+    if(!$d.length){
+        $("<div id='debug'/>").appendTo("body");
+        $d = $("#debug");
+    };
+    $d.text(s);
+};
+
+
+function global_tip(str, delay){
+    delay = delay || 3000;
+    var p = $("<div class='global_tip'/>").appendTo("body"),
+        h = $("header"),
+        tip_top = 0;
+    if(h.length) tip_top = Math.max(0, h.height());
+    p.show().text(str).css("top",tip_top);
+    setTimeout(function(){
+        p.fadeOut(function(){
+            p.remove();
+        });
+    },delay)
+};
+</script>
+<!--
+
+
+<link rel="stylesheet" type="text/css" href="http://s2.pstatp.com/css/toutiao/wap.css?ver=20150729">
+
+-->
+
+<title>选择频道 - 觅拓东欧</title>
+
+<style type="text/css">
+
+</style>
+
+</head>
+
+<body class="iphone">
+
+
+
+<header id="header" class="relative channel">
+    <div class="top_bar">
+        <div class="abs_l">
+            <a class="btn back" href="/"></a>
+        </div>
+        <div class="abs_m">
+            频道管理
+        </div>
+    </div>
+</header>
+
+
+
+
+<div class="con">
+    <div class="msg">点击删除频道</div>
+    <!--
+    -->
+    <ul class="list" data-toggle="menu-selected"><li class="fixed" data-category="__all__"><a>推荐</a></li><li data-category="news_essay"><a>美文</a></li><li data-category="news_entertainment"><a>娱乐</a></li><li data-category="news_tech"><a>科技</a></li><li data-category="news_fashion"><a>时尚</a></li><li data-category="news_food"><a>美食</a></li><li data-category="news_story"><a>故事</a></li><li data-category="news_game"><a>游戏</a></li></ul>
+
+
+    <div class="msg tip" disabled-message="最多#n#个频道,请先删除一些" origin-message="点击添加以下频道">点击添加以下频道</div>
+    <!--
+    -->
+    <ul class="list" data-toggle="menu-unselected"><li data-category="news_hot"><a>热点</a></li><li data-category="news_society"><a>社会</a></li><li data-category="news_car"><a>汽车</a></li><li data-category="news_sports"><a>体育</a></li><li data-category="news_finance"><a>财经</a></li><li data-category="news_military"><a>军事</a></li><li data-category="news_world"><a>国际</a></li><li data-category="news_travel"><a>旅游</a></li><li data-category="news_history"><a>历史</a></li><li data-category="news_discovery"><a>探索</a></li><li data-category="news_baby"><a>育儿</a></li><li data-category="news_regimen"><a>养生</a></li></ul>
+
+</div>
+
+
+<script>
+var SortMenu = {
+    init : function (obj) {
+        this.category = obj.category;
+        this.categoryName = obj.categoryName;
+        this.$con = $(obj.container);
+        this.$selectedList = $(obj.selected);
+        this.$unSelectedList = $(obj.unselected);
+        this.$message = $(obj.message);
+        this.tmpl = obj.tmpl;
+        this.count = 0;
+
+        this.$message.text(this.$message.attr("origin-message"));
+
+        this.restoreOrder(obj);
+
+        this.addEvents(obj);
+    },
+
+    addEvents : function(obj){
+        var _this = this, lock = false;
+
+        this.$selectedList.on("click",obj.itemSelector,function(){
+            if(lock) return;
+            lock = true;
+
+            var $this = $(this), that = this;
+            if($this.is(obj.itemExclude)) return false;
+            animateAdd(that,_this.$unSelectedList, function(){ animateRemove(that) });
+            var s = _this.$message.attr("origin-message");
+            _this.$message.text(s).removeClass("alert");
+            _this.count -= 1;
+            return false;
+        });
+
+        this.$unSelectedList.on("click",obj.itemSelector,function(){
+            if(lock) return;
+            lock = true;
+
+            var that = this;
+            if(_this.count == obj.maxCount){
+                var s = _this.$message.attr("disabled-message");
+                _this.$message.text(s.replace("#n#", obj.maxCount+1 )).addClass("alert");
+                return false;
+            };
+            animateAdd(that,_this.$selectedList, function(){ animateRemove(that) });
+            _this.count += 1;
+            return false;
+        });
+
+        function saveOrder(){
+            var s = [];
+            _this.$selectedList.find(obj.itemSelector).each(function(){
+                s.push($(this).attr("data-category"));
+            });
+            s = s.join(",");
+            localStorage["menuDefaults"] = s;
+            return s;
+        };
+
+        function animateAdd(obj,$dest,callback){
+            var $obj = $(obj);
+            $obj.appendTo($dest);
+            if(callback) callback();
+
+            /*
+            var $obj = $(obj),
+                $obj_clone = $obj.clone().css("visibility","hidden").appendTo($dest),
+                orig_pos = obj.getBoundingClientRect(),
+                clone_pos = $obj_clone[0].getBoundingClientRect(),
+                delta_x = clone_pos.left - orig_pos.left,
+                delta_y = clone_pos.top - orig_pos.top;
+
+            obj.setAttribute("data-x",orig_pos.left);
+            obj.setAttribute("data-y",orig_pos.top);
+
+            if(callback) callback();
+
+            obj.style.webkitTransform = "translate3d("+delta_x+"px,"+delta_y+"px,0)";
+            obj.style.zIndex = "1000";
+
+            obj.addEventListener("webkitTransitionEnd",function(){
+                $obj_clone.css("visibility","visible");
+            });
+            */
+        };
+
+        function animateRemove(obj){
+            saveOrder();
+            lock = false;
+
+
+            /*
+            var $obj = $(obj),
+                $con = $obj.parent(),
+                cur = obj,
+                next = cur.nextElementSibling;
+
+            $con.css({
+                "height" : $con.outerHeight()+"px",
+                "position" : "relative"
+            });
+
+            var $siblings = $obj.siblings().add(obj);
+            for(var i = $siblings.length; i>0 ; i--){
+                var $ele = $siblings.eq(i-1);
+                $ele.css({
+                    "position"  : "absolute",
+                    "left"      : $ele[0].offsetLeft-parseInt($ele.css("margin-left").replace("px",""))+"px",
+                    "top"       : $ele[0].offsetTop-parseInt($ele.css("margin-top").replace("px",""))+"px"
+                })
+            };
+
+
+            while(next){
+                var next_pos = next.getBoundingClientRect(),
+                    delta_x = parseInt(cur.getAttribute("data-x")) - next_pos.left,
+                    delta_y = parseInt(cur.getAttribute("data-y")) - next_pos.top;
+
+                next.setAttribute("data-x",next_pos.left);
+                next.setAttribute("data-y",next_pos.top);
+
+                next.style.webkitTransform = "translate3d("+delta_x+"px,"+delta_y+"px,0)";
+                cur = next;
+                next = next.nextElementSibling;
+            };
+
+
+            setTimeout(function(){
+                $siblings.css({
+                    "-webkit-transition" : "none",
+                    "-webkit-transform" : "translate3d(0,0,0)",
+                    "position" : "relative",
+                    "left" : "auto",
+                    "top" : "auto"
+                });
+
+                $obj.remove();
+                saveOrder();
+
+                setTimeout(function(){
+                    $siblings.removeAttr("style data-x data-y");
+                    $con.css("height" , "auto");
+                    console.log("done");
+                    lock = false;
+                },100);
+            },400);
+            */
+        }
+    },
+
+    restoreOrder : function(obj){
+        var storedMenu = localStorageEnabled ?localStorage["menuDefaults"]:"", defaults;
+        defaults = storedMenu ? storedMenu.split(",") : obj.category.slice(0,obj.defaultCount);
+
+        for(var i = 0; i<obj.category.length; i++){
+            var t = obj.category[i];
+            if($.inArray(t,defaults) == -1){
+                var s = this.getItemString({ category : t, name : obj.categoryName[i] });
+                this.$unSelectedList.append(s)
+            }
+        };
+
+        for(var i = 0; i<defaults.length; i++){
+            var t = defaults[i],
+                index = $.inArray(t,obj.category);
+
+            if(index > -1){
+                var s = this.getItemString({ category : t, name : obj.categoryName[index] });
+                this.$selectedList.append(s);
+                this.count += 1;
+            }
+        }
+    },
+
+    getItemString : function(obj){
+        var tmpl = this.tmpl;
+        for(k in obj) tmpl = tmpl.replace("#"+k+"#", obj[k]);
+        return tmpl;
+    }
+};
+</script>
+<script>
+SortMenu.init({
+        category    : ["news_hot","news_society", "news_entertainment", "news_tech", "news_car", "news_sports", "news_finance", "news_military", "news_world", "news_fashion",  "news_game", "news_travel", "news_history", "news_discovery","news_food","news_baby","news_regimen","news_story","news_essay"],
+        categoryName: ['热点','社会','娱乐','科技','汽车','体育','财经','军事','国际','时尚','游戏','旅游','历史','探索','美食','育儿','养生','故事','美文'],
+        // tmpl        : "<li data-category='#category#'><a href='javascript:void(0);'>#name#</a></li>",
+        tmpl        : "<li data-category='#category#'><a>#name#</a></li>",
+        maxCount    : 15,
+        defaultCount: 11,
+        container   : ".con",
+        message     : ".tip",
+        selected    : "[data-toggle=menu-selected]",
+        unselected  : "[data-toggle=menu-unselected]",
+        itemSelector: "li",
+        itemExclude : ".fixed"
+});
+</script>
+</body>
+</html>

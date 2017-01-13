@@ -1,0 +1,1 @@
+function main(){require(["language/main","libs"],function(e,i){i.underscore,i.jquery,i.Backbone,i.Marionette,i.LocalStorage;e.init()})}require.config({baseUrl:"/dist/webapp/js",paths:{libs:"libs/main"}}),require(["libs"],function(e){var i=e.jquery;i(document).ready(main)});

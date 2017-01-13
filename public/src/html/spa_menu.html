@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="Content-Type"    content="text/html; charset=utf-8"/>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' >
+<meta http-equiv='Cache-Control'   content='no-siteapp' >
+<meta name="renderer"    content="webkit">
+<meta name="viewport"    content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="description" content="">
+<meta name='author'      content='caesar, rayanddoctor@126.com' >
+<meta name='keywords'    content=''>
+<title>SPA</title>
+<link rel="stylesheet" href="/dist/webapp/css/webapp.css">
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="/dist/css/pure-lib-old-ie.css">
+<![endif]-->
+<style type="text/css">
+</style>
+</head>
+<body class="">
+<script type="text/javascript">
+;(function(){
+    var calc = function(){
+        var docElement = document.documentElement;
+        var clientWidthValue = docElement.clientWidth > 480 ? 480 : docElement.clientWidth;
+        docElement.style.fontSize = 10*(clientWidthValue/320) + 'px';
+    }
+    calc();
+    window.addEventListener('resize',calc);
+})();
+</script>
+<script>
+//console.log(document.body.className);
+//alert(navigator.userAgent);
+;(function(ua, w, d, undefined) {
+    var _ua = ua.toLowerCase();
+    //alert(_ua);
+    if ( (/iphone|ipod|ipad/).test(_ua) ) {
+        d.body.className = 'apple mobile';
+        return;
+    }
+    else if ( (/android|blackberry|opera mini|iemobile/).test(_ua) ) {
+        d.body.className = 'android mobile';
+        if ( _ua.indexOf('micromessenger') > -1 ) {
+            //alert('wechat');
+            d.body.className = 'wechat mobile';
+        }
+        return;
+    }
+    else if ( (/mobile/).test(_ua) ) {
+        d.body.className = 'mobile';
+        if ( (_ua.indexOf('micromessenger') > -1) || (_ua.indexOf('baidu') > -1) ) {
+            //alert('wechat');
+            d.body.className = 'wechat mobile';
+        }
+        return;
+    }
+    else {
+        d.body.className = 'pc';
+        if ( _ua.indexOf('micromessenger') > -1 ) {
+            //alert('wechat');
+            d.body.className = 'wechat mobile';
+        }
+        return;
+    }
+
+})(navigator.userAgent || navigator.vendor || window.opera, window, document);
+//console.log(document.body.className);
+//alert(document.body.className);
+</script>
+<div id="container">
+
+<div id="bootstrap" class="bootstrap" style="">
+    <div class="boot-gps">
+        <div class="boot-gps-icon"></div>
+        定位中
+    </div>
+</div>
+
+<ul id="mod-navs" class="mod-navs theme-spline-top" style="display: block;">
+    <a href="/spa/home" class="navs-item navs-item-home" data-key="home" style="width:25%;">
+        <div class="navs-bubble"></div>广场
+    </a>
+    <a href="javascript:void(0);" class="navs-item navs-item-menu  navs-current" data-key="menu" style="width:25%;">
+        <div class="navs-bubble"></div>闪送超市
+    </a>
+    <a href="/spa/cart" class="navs-item navs-item-cart " data-key="cart" style="width:25%;">
+        <div class="navs-bubble" style="display: none;"></div>购物车
+    </a>
+    <a href="/spa/mine" class="navs-item navs-item-mine" data-key="mine" style="width:25%;">
+        <div class="navs-bubble"></div>我的
+    </a>
+</ul>
+
+
+<div id="header"></div>
+
+<div id="bottom"></div>
+</div>
+</body>
+<script data-main="/dist/webapp/js/config/spa-menu-main" src="/dist/webapp/js/require.js"></script>
+<script></script>
+</html>

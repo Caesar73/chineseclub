@@ -1,0 +1,36 @@
+<% /* %>
+
+<!-- -->
+<%- partial('../sidebar') %>
+
+<% */ %>
+
+
+<div id='content' class="message-page">
+
+    <ul class='breadcrumb'>
+        <li><a href='/'>主页</a><span class='divider'>/</span></li>
+        <li class='active'>新消息</li>
+    </ul>
+
+    <% if (typeof(hasnot_read_messages) !== 'undefined' && hasnot_read_messages.length > 0) { %>
+    <%- partial('../message/message', { collection: hasnot_read_messages, as: 'message' }) %>
+    <% } else { %>
+    <div class='no-topic segment'>
+        <p>无消息</p>
+    </div>
+    <% } %>
+
+    <ul class='breadcrumb'>
+        <li class='active'>过往信息</li>
+    </ul>
+
+    <% if (typeof(has_read_messages) !== 'undefined' && has_read_messages.length > 0) { %>
+    <%- partial('../message/message', { collection: has_read_messages, as: 'message' }) %>
+    <% } else { %>
+    <div class='no-topic segment'>
+      <p>无消息</p>
+    </div>
+    <% } %>
+
+</div>

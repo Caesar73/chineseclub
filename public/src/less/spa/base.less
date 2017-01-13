@@ -1,0 +1,261 @@
+
+
+
+/* css 重置 */
+body, p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form { margin: 0; padding: 0; list-style: none; vertical-align: middle; font-weight:normal; }
+img { border:0; margin: 0; padding: 0;   }
+body { color: #000; -webkit-user-select: none; -webkit-text-size-adjust: none; font:normal 16px/200% "微软雅黑", helvetica, arial; text-align:left;   }
+header, section, footer { display: block; margin: 0; padding: 0 }
+a{text-decoration:none;color:#000;}
+
+body {
+    background:#f4f4f4;
+    min-width: 320px;
+    max-width: 720px;
+    margin: 0 auto;
+    // overflow: hidden;
+}
+
+#container {
+    background: #E0EBEF;
+    // position: relative;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    font-size: 1.4rem;
+    // -webkit-transition: top .5s;
+    // padding-bottom: 5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#header,
+#container,
+#mod-navs {
+    min-width: 320px;
+    max-width: 720px;
+    margin: 0 auto;
+
+}
+
+.header
+.search-bar {
+    // position: absolute;
+    min-width: 320px !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+}
+//
+//
+// #container,
+// #header,
+// #bootsrap,
+// #mod-navs,
+// .head_top,
+// .search-bar {
+//     min-width: 320px;
+//     max-width: 720px;
+//     margin: 0 auto;
+// }
+// .head_top,
+// .search-bar {
+//     position: absolute;
+// }
+// .blog .head_top {
+//     position: fixed;
+// }
+
+#list {
+    background: #E0EBEF;
+}
+
+.path{ padding:0 0 5px 5px;   }
+
+* {
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+    // -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+
+.mod-loading {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:50000;
+
+    .loading-content{
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:200px;
+        height:60px;
+        margin:-50px 0 0 -100px;
+        text-align:center;
+        line-height:30px;
+        font-weight:bold;
+        background-color:#ccc;
+        border-radius:15px;
+    }
+
+    .loading-text{
+        margin-left:12px;
+    }
+}
+
+
+.spinner {
+    margin: 5px 0;
+    padding:0;
+    height:22px;
+    text-align: center;
+
+    .bounce1{
+        -webkit-animation-delay:-0.32s;
+        animation-delay:-0.32s;
+    }
+
+    .bounce2{
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+
+}
+
+.spinner > div {
+    width: 22px;
+    height: 22px;
+    background-color: #fcda04;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+    animation: bouncedelay 1.4s infinite ease-in-out;
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both;
+}
+
+
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0.0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+    40% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+
+.pencil {
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: #FFF;
+    overflow: hidden;
+    padding: 0.7rem;
+
+    position: fixed;
+    // left: 90%
+    right: 1rem;
+    bottom: 7rem;
+    z-index: 100;
+    width: 4rem !important;
+    height: 4rem;
+
+    img {
+        width: 100%;
+        position: relative;
+        left: 1px;
+        top: 0;
+    }
+
+}
+
+//简介字
+@c_sum:#999999;
+.d(b){
+    display: block;
+}
+.d(n){
+    display: none;
+}
+.d(in){
+    display: inline-block;
+}
+.p(r){
+    position: relative;
+}
+.p(a){
+    position: absolute;
+}
+.p(f){
+    position: fixed;
+}
+.f(l){
+    float: left;
+}
+.f(r){
+    float: right;
+}
+
+//正在加载
+.loading-new {
+    height: 52px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #eeeeee;
+    text-align: center;
+    line-height: 52px;
+
+    position: absolute;
+    left: 0;
+    bottom: 5.2rem;
+    width: 100%;
+
+    span {
+        color: @c_sum;
+        font-size: 0.9rem;
+        .d(b);
+
+        i {
+            background: url(/img/circle.png);
+            width: 8px;
+            height: 8px;
+            background-size: 100%;
+            .d(in);
+            margin-right: 5px;
+            -webkit-animation: psdLoading 1s infinite linear;
+            .p(r);
+            top: 1px;
+        }
+    }
+}
+
+.content {
+    height: 100px;
+    overflow: scroll;
+    width: 100%;
+}
+
+
+
+
+
+@import "./mask.less";

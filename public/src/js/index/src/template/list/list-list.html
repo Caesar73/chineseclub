@@ -1,0 +1,19 @@
+
+<ul class="table-view">
+    <% _.each(items, function (item) { %>
+    <li class="table-view-cell">
+        <a class="navigate-right" href="#list-detail/<%= item.id %>">
+            <img src="<%= item.cover %>" alt="">
+        </a>
+        <a href="#list-detail/<%= item.id %>"></a>
+        <p>
+            <h1><%= item.name %></h1>
+        </p>
+        <p>
+            <span><%= item.num %></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span>photos</span>
+        </p>
+    </li>
+    <% }); %>
+</ul>

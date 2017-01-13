@@ -1,0 +1,53 @@
+<div class="pure-menu pure-menu-horizontal menu-cool">
+
+<!--
+    <a href="/" class="pure-menu-heading pure-menu-link">
+        <% if (config.site_logo) {%>
+          <img src="<%- staticFile(config.site_logo) %>" />
+        <%} else {%>
+          <%- config.name %>
+        <%}%>
+    </a>
+
+      <form id='search_form' class='navbar-search' action="/search">
+        <input type='text' id='q' name='q' class='search-query span3' value=''/>
+      </form>
+-->
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+        <li class="pure-menu-item"><a href="/getstart" class="pure-menu-link">Guide</a></li>
+        <li class="pure-menu-item"><a href="/api" class="pure-menu-link">API</a></li>
+
+        <%
+        var site_navs = config.site_navs || [];
+        for (var i = 0, l = site_navs.length; i < l; i++) {
+        var nav = site_navs[i];
+        %>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="<%- nav[0] %>" target="<%- nav[2] %>"><%- nav[1] %></a></li>
+        <% } %>
+        <% if (current_user) { %>
+        <li class="pure-menu-item"><a class="pure-menu-link" href='/setting'>设置</a></li>
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href='/signout' data-method="post" rel="nofollow">退出</a>
+        </li>
+        <% } else { %>
+        <li class="pure-menu-item"><a class="pure-menu-link" href='/signup'>注册</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href='/signin'>登录</a></li>
+        <% } %>
+
+        <% if (current_user){ %>
+        <li class="pure-menu-item">
+            <a class="pure-menu-link" href='/my/messages'>
+              <% if (current_user.messages_count) { %>
+                <span class='big messages_count'><%= current_user.messages_count %></span>
+              <% } %>
+              未读消息
+            </a>
+        </li>
+        <% } %>
+
+
+    </ul>
+
+</div>
+

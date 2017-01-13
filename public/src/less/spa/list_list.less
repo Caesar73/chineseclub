@@ -1,0 +1,166 @@
+
+@import "../tadu/base/variable.less";
+
+/*
+
+*/
+.style_list {
+    width:100%;
+    // padding: 15px;
+    nav {
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+
+        li {
+
+            width: 100%;
+            .box(@ori:horizental);
+            margin-bottom: 7px;
+
+            a {
+                .d(b);
+                .tc;
+                .flex;
+                padding: 9px 0;
+                color: #333333;
+                margin-right: 10px;
+                .radius(@b_width: 5px);
+                font-size: @sort_size;
+            }
+            a:last-child {
+                margin-right: 0;
+            }
+        }
+        li:last-child {
+            margin-bottom: 0!important;
+        }
+    }
+}
+
+
+
+#header {
+    header {
+        height: 3rem;
+    }
+    .search-bar {
+        label {
+            font-size: 105%;
+            line-height: 3rem;
+        }
+        .dialog {
+            background: #FFF;
+            top: 3rem;
+        }
+    }
+}
+
+.list-list {
+
+    padding-top: 5px;
+    padding-bottom: 9.7rem;
+    position: relative;
+    left: 0;
+    top: 0;
+    text-align: center;
+    overflow: hidden;
+
+    padding-top: 3.3rem;
+
+    header {
+        height: 3rem;
+    }
+    .search-bar {
+        label {
+            font-size: 105%;
+            line-height: 3rem;
+        }
+        .dialog {
+            background: #FFF;
+            top: 3rem;
+        }
+    }
+
+    a {
+        display: block;
+        overflow: hidden;
+    }
+
+    .pure-u-1 {
+        background-color: #dfe4e9;
+        box-sizing: border-box;
+        color: #FFF;
+        // margin: 0 5px 5px;
+        padding: 0 5px 5px;
+        min-height: 180px;
+        position: relative;
+        top: 0;
+        left: 0;
+
+        img {
+            width: 100%;
+            display: block;
+            min-height: 150px;
+            border-radius: 2px;
+        }
+
+        p.description {
+            color: #FFF;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            right: 10px;
+            z-index: 2;
+            line-height: 1;
+            text-shadow: 1px 0 4px rgba(0,0,0,0.3);
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* number of lines to show */
+            -webkit-box-orient: vertical;
+
+        }
+        p.info {
+            color: #FFF;
+            position: absolute;
+            left: 15px;
+            bottom: 15px;
+            right: 10px;
+            z-index: 2;
+
+            span {
+                // display: block;
+                display: inline;
+                // float: left;
+                padding: 0 0.3rem 0 0;
+            }
+            .author {
+                display: block;
+            }
+            .location {
+
+            }
+        }
+
+        p.title {
+            line-height: 1;
+            text-shadow: 1px 0 4px rgba(0,0,0,0.3);
+        }
+
+        p.introduce {
+
+        }
+
+    }
+
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,702 @@
+//充值首页
+.pay-tadou {
+    font-size: @title_size;
+    .d(b);
+    padding: 24px 15px 26px;
+
+    i {
+        color: @pay-o;
+        font-size: @pay-f;
+    }
+}
+.pay-tab {
+    li {
+        width: 50%;
+        float: left;
+        border-bottom: 1px solid @btn_blue;
+
+        a {
+            line-height: 45px;
+            .d(b);
+            .tc;
+            font-size: 1.7rem;
+        }
+    }
+    .current {
+        a {
+            color: @btn_blue;
+        }
+    }
+}
+.pay-wrong {
+    .p(r);
+
+    input {
+        color: @c_default;
+    }
+
+    input:focus {
+        border-color: @btn_red;
+    }
+
+    i {
+        background: url(/images/pay.png) -18px 0;
+        width: 15px;
+        height: 15px;
+        .d(in);
+        background-size: 100px 100px;
+        .p(a);
+        top: 61px;
+        right: 36px;
+        .hidden;
+    }
+    div {
+        span {
+            padding-left: 12px;
+            color: @btn_red;
+            font-size: @evaluate_f;
+            margin-top: 7px;
+            .d(in);
+        }
+
+        em {
+            display: inline-block;
+            width: 16px;
+            height: 20px;
+            margin-left: 12px;
+            background: url(/images/other-pay.png) no-repeat 0 13px;
+            background-size: 100% 30%;
+        }
+
+        a {
+            color: #02cfd4;
+            text-decoration: underline;
+            font-size: @evaluate_f;
+        }
+    }
+}
+
+//充值成功
+.success-p {
+    padding: 29px 15px;
+
+    i {
+        background: url(/images/right.png);
+        width: 45px;
+        height: 45px;
+        .d(b);
+        background-size: 100%;
+        margin: auto;
+    }
+
+    span {
+        font-size: @rank-title;
+        .d(b);
+        .tc;
+        margin-top: 10px;
+    }
+
+    .tadou-now {
+        font-size: @sort_size;
+
+        em{
+            color: @orange;
+        }
+    }
+}
+.alipay-o {
+    padding: 0;
+}
+.hint {
+    background: #f5f5f5;
+    padding: 21px 15px 37px;
+    .p(r);
+
+    h2 {
+        border-top: 1px solid #d7d7d7;
+        width: 240px;
+        margin: auto;
+    }
+
+    h3 {
+        width: 108px;
+        font-size: @sort_size;
+        color: @c_sum;
+        .tc;
+        .p(a);
+        top: 13px;
+        left: 50%;
+        margin-left: -54px;
+        background-color: #f5f5f5;
+    }
+
+    ul{
+        margin-top: 22px;
+
+        li {
+        font-size: @sort_size;
+        color: @c_sum;
+        line-height: 20px;
+
+            span {
+                color: @c_href;
+            }
+        }
+    }
+}
+.hint-d {
+    padding: 20px 15px 68px;
+
+    h2 {
+        margin-top: 30px;
+    }
+
+    h3 {
+        top: 41px;
+    }
+}
+.hint-p {
+    padding: 27px 15px 50px;
+
+    h3 {
+        top: 18px;
+    }
+}
+
+.pay-n {
+    padding: 15px;
+    h1 {
+        font-size: @title_size;
+        margin-bottom: 12px;
+        line-height: 20px;
+        span {
+            font-size: @evaluate_f;
+            color: @c_sum;
+            float: right;
+            i {
+                background: url(/images/money.png);
+                width: 10px;
+                height: 11px;
+                background-size: 100%;
+                .d(in);
+                margin-right: 4px;
+                .p(r);
+                top: 1px;
+            }
+        }
+    }
+    input {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        font-size: @hot-size;
+        border-color: #e7e7e7;
+        padding: 10px 12px;
+        margin-bottom: 10px!important;
+    }
+    .pay-choose {
+        li {
+            .tc;
+            .box(@ori: horizontal);
+            margin-bottom: 9px;
+            a {
+                .box(@ori:vertical);
+                height: 70px;
+                background-color: @choose-c;
+                border: 1px solid @choose-b;
+                width: 50%;
+                .flex;
+                .pack;
+                .align;
+                margin: 0 9px 0 0;
+                h2 {
+                    font-size: @pay-f;
+                    margin: 5px 0 6px;
+                    line-height: 20px;
+                }
+                span {
+                    font-size: @more_size;
+                    color: @time_cl;
+                    .d(b);
+                    line-height: 18px;
+                }
+            }
+            a:nth-child(even) {
+                margin-right: 0;
+            }
+            .none {
+                border: none;
+                background-color: white;
+            }
+            .current {
+                background: white;
+                border-color: @btn_orange;
+            }
+        }
+        li:last-child {
+            margin-bottom: 0;
+        }
+        .alipay-m {
+            height: 70px;
+            line-height: 70px;
+            margin: 0;
+        }
+    }
+    .pay-m {
+        .red-btn;
+        .pay-btn;
+    }
+    .pay-m:active {
+        .red-btn-c;
+    }
+    .pay-w {
+        .pay-btn;
+        .white-btn;
+    }
+    .pay-w:active {
+        background-color: @help_bg;
+    }
+    .alipay {
+        padding-bottom: 20px;
+    }
+    .message-c {
+        padding-bottom: 0;
+        .current {
+            a {
+                background-color: white;
+                border-color: @btn_orange;
+            }
+        }
+    }
+    .phonecard {
+        padding-bottom: 9px;
+    }
+    .phone-choose {
+        margin-bottom: 0;
+        .box(@ori: horizontal);
+        li {
+            .flex;
+            margin-right: 9px;
+            margin-bottom: 0;
+            a {
+                height: 48px;
+                line-height: 48px;
+                background-color: white;
+                border-color: #d3d3d3;
+                margin: 0;
+                h2 {
+                    font-size: @rank-title;
+                    margin: 0;
+                    line-height: 48px;
+                }
+            }
+        }
+        li:last-child {
+            margin-right: 0;
+        }
+        .current {
+            a {
+                border-color: @c_blue;
+            }
+        }
+    }
+    .phone-n {
+        padding-bottom: 0;
+        margin-top: 15px;
+        //display: none;
+        input {
+            font-size: @name_size;
+            margin-bottom: 7px;
+        }
+        input:last-child {
+            margin-bottom: 0;
+        }
+        a {
+            .pay-btn;
+            .red-btn;
+            margin: 10px 0 37px;
+        }
+        .disable {
+            margin: 10px 0 0;
+        }
+        a:active {
+            .red-btn-c;
+        }
+    }
+}
+.pay-c {
+    padding-top: 0;
+}
+
+//其他充值方式
+.pay-other {
+    padding: 15px;
+
+    li {
+        margin: 8px 0;
+
+        a {
+            border: 1px solid #d5d5d5;
+            border-radius: 5px;
+            width: 100%;
+            height: 49px;
+            line-height: 49px;
+            background-color: white;
+            .d(b);
+            padding: 0 16px 0 21px;
+            img {
+                width: 32px;
+                .p(r);
+                top: 8px;
+                .f(l);
+                margin-right: 16px;
+            }
+            span {
+                font-size: @rank-title;
+            	display: -webkit-box;
+            	-webkit-box-align: center;
+                height: 100%;
+                color: @c_default;
+            }
+            em {
+                background: url(/images/pay.png) 62px 0;
+                width: 7px;
+                height: 14px;
+                .d(in);
+                background-size: 100px 100px;
+                float: right;
+                .p(r);
+                top: -31px;
+            }
+            i {
+                width: 31px;
+                height: 31px;
+                .d(in);
+                .p(r);
+                top: 8px;
+                margin-right: 16px;
+            }
+            .message-i {
+                background: url(/images/pay.png) no-repeat -68px -34px;
+                background-size: 320%;
+            }
+            .alipay-i {
+                background: url(/images/pay.png) no-repeat 0 -68px;
+                background-size: 320%;
+            }
+            .phone-i {
+                background: url(/images/pay.png) no-repeat -67px -67px;
+                background-size: 316%;
+            }
+        }
+    }
+
+    li:last-child {
+        margin-bottom: 0;
+    }
+    li:first-child {
+        margin-top: 0;
+    }
+}
+.alipay-o {
+    padding: 0;
+}
+
+//充值失败
+.failed-p {
+    padding: 30px 0;
+    i {
+        background: url(/images/warning.png);
+        background-size: 100%;
+    }
+    a {
+        .d(b);
+        .tc;
+        margin-top: 5px;
+        font-size: 1.3rem;
+    }
+}
+.message-f {
+    padding-bottom: 49px;
+}
+.pay_module {
+    border-top: none;
+    padding-top: 59px;
+}
+
+//充值记录
+.record {
+    padding: 0 15px;
+    font-size: 1.4rem;
+    h1 {
+        margin: 19px 0 0 0;
+        em {
+            color: #ff6a67;
+        }
+    }
+    .pay-record {
+        li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f6f6f6;
+            p {
+                span:first-child {
+                    float: left;
+                }
+                span:last-child {
+                    float: right;
+                }
+            }
+            p:last-child {
+                font-size: 1.2rem;
+                color: #999;
+                margin-top: 10px;
+            }
+            @media screen and (max-width: 320px) {
+                p:last-child {
+                    font-size: 1rem;
+                }
+            }
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+    }
+}
+.pay-wrong .page_reback {
+    margin-top: 0;
+    padding-left: 12px;
+    color: @btn_red;
+    font-size: @evaluate_f;
+}
+//验证码获取中
+.bg-white {
+    background-color: white;
+}
+.pay-message {
+    .p(r);
+    form {
+        margin: 15px 0 30px;
+    }
+    .psrd_fm {
+        margin: 5px 0 30px;
+    }
+    .password_new {
+        margin-bottom: 0;
+        input {
+            border: none;
+            border-bottom: 1px solid #d5d5d5;
+            border-radius: 0;
+            margin-bottom: 20px!important;
+        }
+        input:last-child {
+            margin-bottom: 0px!important;
+        }
+        input:focus {
+            border-color: #333;
+        }
+    }
+    .forget {
+        color: #999999;
+        font-size: 1.4rem;
+        padding: 0 8px;
+        a {
+            color: #999999;
+            .d(b);
+            margin-top: 15px;
+            .f(l);
+        }
+        div {
+            float: right;
+            .p(r);
+            margin-top: 15px;
+            input[type="checkbox"] {
+              display: block;
+              background: url(/images/login-check.jpg) no-repeat 0 -12px;
+              background-size: 100%;
+              height: 12px;
+              width: 12px;
+              vertical-align: middle;
+              border: none;
+              -webkit-appearance: none;
+              border-radius: 0;
+              padding: 0;
+              margin: 0;
+              .p(a);
+              top: 4px;
+              left: -18px;
+          }
+          input[type="checkbox"]:checked {
+              background-position: 0 0;
+          }
+        }
+    }
+    .discord {
+        font-size: 1.4rem;
+        color: #f00;
+        padding: 10px 0 0 13px;
+        .d(b);
+    }
+    .code-no {
+        font-size: @name_size;
+        color: @c_sum;
+        .d(b);
+        text-align: right;
+    }
+    .sure {
+        .pay-btn;
+        .green-btn;
+        margin-top: 30px;
+    }
+    .sure:active {
+        .green-btn-c;
+    }
+
+}
+.auth-code {
+    border-bottom: 1px solid #d5d5d5;
+    width: 63%;
+    float: left;
+    height: 40px;
+    .p(r);
+    .code {
+        border: none!important;
+        color: #222222!important;
+        height: 22px!important;
+        line-height: 22px!important;
+        .p(r);
+        bottom: -11px;
+        padding: 0 0 0 35px!important;
+    }
+    .key {
+        background: url(/images/key.png);
+        width: 11px;
+        height: 21px;
+        .d(in);
+        background-size: 100%;
+        .p(a);
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+    }
+    .phone {
+        background: url(/images/phone.png);
+        background-size: 100%;
+        width: 13px;
+        height: 22px;
+        top: 11px;
+        left: 9px;
+    }
+    .number {
+        background: url(/images/icon.png) -219px 0;
+        background-size: 762%;
+        width: 18px;
+        height: 18px;
+        top: 11px;
+    }
+    .cipher {
+        background: url(/images/icon.png) -232px 0;
+        background-size: 750%;
+        width: 18px;
+        height: 20px;
+        top: 11px;
+        left: 8px;
+    }
+    .eye {
+        background: url(/images/icon.png) -254px 0;
+        background-size: 651%;
+        width: 21px;
+        height: 13px;
+        right: 10px;
+        left: auto;
+    }
+    .eye_green {
+        background: url(/images/icon.png) -254px -13px;
+        background-size: 651%;
+    }
+    .warning {
+        font-size: 1.2rem;
+        color: #ff0000;
+        .p(a);
+        top: 47px;
+        left: 35px;
+    }
+}
+.auth-code:hover {
+    border-bottom: 1px solid #1e2a3a;
+}
+.red_ss:hover {
+    border-bottom: 1px solid #ff0000;
+}
+.submit {
+    width: 37%!important;
+    color: white!important;
+    padding-left: 0!important;
+    .tc;
+    background: #25c4a6;
+    .d(in);
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    color: white;
+    font-size: @name_size;
+}
+.message-blue {
+    background-color: @c_blue;
+}
+.third {
+    .p(a);
+    top: 340px;
+    padding: 0 15px;
+    width: 100%;
+    color: #999;
+    h1 {
+        border-top: 1px solid #d5d5d5;
+        span {
+            padding: 0 30px;
+            font-size: 1.5rem;
+            .d(b);
+            width: 150px;
+            margin: auto;
+            .p(r);
+            top: -11px;
+            background: #fff;
+        }
+    }
+    div {
+        padding: 20px 60px 0;
+        a {
+            .d(b);
+            .tc;
+            width: 61px;
+            i {
+                background: url(/images/icon.png) -22px -37px;
+                background-size: 239%;
+                width: 61px;
+                height: 61px;
+                .d(b);
+                margin-bottom: 10px;
+            }
+            span {
+                color: #999;
+                font-size: 1.4rem;
+            }
+        }
+        a:first-child {
+            .f(l);
+        }
+        a:last-child {
+            .f(r);
+            i {
+                background: url(/images/icon.png) -86px -37px;
+                background-size: 239%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 320px) {
+    .third {
+        div {
+            padding: 20px 40px 0;
+        }
+    }
+}

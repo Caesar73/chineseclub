@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="Content-Type"    content="text/html; charset=utf-8"/>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' >
+<meta http-equiv='Cache-Control'   content='no-siteapp' >
+<meta name="renderer"    content="webkit">
+<meta name="viewport"    content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="description" content="">
+<meta name='author'      content='caesar, rayanddoctor@126.com' >
+<meta name='keywords'    content=''>
+<title>Phooer</title>
+<link rel="stylesheet" href="/dist/webapp/css/phooer.css">
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="/dist/css/pure-lib-old-ie.css">
+<![endif]-->
+<style type="text/css">
+/*
+.top_menu_more {
+    display: none;
+}
+*/
+
+
+
+</style>
+</head>
+<body class="">
+<script type="text/javascript">
+;(function (win, doc) {
+
+    var calc = function(){
+        var docElement = doc.documentElement;
+        var clientWidthValue = docElement.clientWidth > 480 ? 480 : docElement.clientWidth;
+        docElement.style.fontSize = 10*(clientWidthValue/320) + 'px';
+        // alert(20*(clientWidthValue/320));
+    }
+    calc();
+    win.addEventListener('resize',calc);
+})(window, document, null);
+;(function (win, doc) {
+    win.resizeContainer = function (type) {
+        // alert(1);
+        var _type = type || '0';
+        var bs = doc.getElementById('bootstrap');
+        var ct = doc.getElementById('container');
+        var nv = doc.getElementById('mod-navs');
+        if (_type == '100') {
+            // bs.style.height    = win.screen.availHeight + 'px';
+            // ct.style.minHeight = win.screen.availHeight + 'px';
+        }
+        else {
+            // bs.style.height    = win.screen.availHeight + 'px';
+            // ct.style.minHeight = win.screen.availHeight - nv.offsetHeight + 'px';
+        }
+    }
+    // ct.style.minHeight = win.screen.availHeight - nv.offsetHeight*2 + 'px';
+    // ct.style.minHeight = win.screen.availHeight + 'px';
+    // console.log('nv: ' + nv.offsetHeight);
+    // console.log('bs: ' + bs);
+    // console.log('wh: ' + win.screen.availHeight);
+})(window, document, null);
+</script>
+<script>
+//console.log(document.body.className);
+//alert(navigator.userAgent);
+;(function(ua, w, d, undefined) {
+    var _ua = ua.toLowerCase();
+    // alert(_ua);
+    if ( (/iphone|ipod|ipad/).test(_ua) ) {
+        d.body.className = 'apple mobile';
+        return;
+    }
+    else if ( (/android|blackberry|opera mini|iemobile/).test(_ua) ) {
+        d.body.className = 'android mobile';
+        if ( _ua.indexOf('micromessenger') > -1 ) {
+            //alert('wechat');
+            d.body.className = 'wechat mobile';
+        }
+        return;
+    }
+    else if ( (/mobile/).test(_ua) ) {
+        d.body.className = 'mobile';
+        if ( (_ua.indexOf('micromessenger') > -1) || (_ua.indexOf('baidu') > -1) ) {
+            //alert('wechat');
+            d.body.className = 'wechat mobile';
+        }
+        return;
+    }
+    else {
+        d.body.className = 'pc';
+        if ( _ua.indexOf('micromessenger') > -1 ) {
+            //alert('wechat');
+            d.body.className = 'wechat mobile';
+        }
+        return;
+    }
+
+})(navigator.userAgent || navigator.vendor || window.opera, window, document);
+//console.log(document.body.className);
+//alert(document.body.className);
+</script>
+<div id="container" class="language">
+
+<div id="mask" style="">
+    <div id="loader" style="">
+        <div class="sk-spinner sk-spinner-three-bounce">
+            <div class="sk-bounce1"></div>
+            <div class="sk-bounce2"></div>
+            <div class="sk-bounce3"></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+window.resizeContainer();
+</script>
+<header id="header"></header>
+<div id="channel-container"></div>
+
+<content id="pageletListContent" class="feed-list-container">
+    <div class="list_content" pull-fresh="">
+
+<!--
+<section data-is-video="False" hot-time="1467790278" class=" has_action" data-group-id="6304082590873682434" data-item-id="6304082590873682434" data-format="0">
+    <a href="/item/6304082590873682434/" class="article_link clearfix " data-action-label="click_headline">
+        <h3 class="dotdot line3 ">李克强总理在武汉长江干堤涉水而行指挥救灾</h3>
+        <div class="list_img_holder_large list_img_holder_large_fix" style="background: none;">
+            <img src="http://p3.pstatp.com/large/9ef000cd7adf7e10cd1" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;">
+        </div>
+        <div class="item_info">
+            <span class="hot_label space">热</span>
+            <span class="src space">中国政府网</span>
+            <span class="cmt space">评论&nbsp;640</span>
+            <span class="time" title="2016-07-06 15:31">1分钟前</span>
+            <span data-id="6304082590873682434" class="dislike-news  fr"></span>
+        </div>
+    </a>
+</section>
+
+<section data-is-video="False" hot-time="1468571796" class=" has_action" data-group-id="6307465096969355522" data-item-id="6307466763684545025" data-format="0">
+    <div class="one-px-border"></div>
+    <a href="/item/6307466763684545025/" class="article_link clearfix " data-action-label="click_headline" data-tag="news_photography">
+        <h3 class="dotdot line3 ">图虫风光摄影：巴滨路</h3>
+        <div class="list_image">
+            <ul class="clearfix">
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/a8d00054e6ceffa061f" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/a8c000550bfe255efd9" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/a8f000521201c00ba75" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+            </ul>
+        </div>
+        <div class="item_info">
+            <span class="src space">走在路上看风景</span>
+            <span class="cmt space">评论&nbsp;0</span>
+            <span class="time" title="2016-07-15 16:36">55分钟前</span>
+            <span data-id="6307465096969355522" class="dislike-news  fr"></span>
+        </div>
+    </a>
+</section>
+
+-->
+
+
+
+
+<!--
+
+
+
+
+
+<section data-is-video="False" hot-time="1467790278" class=" has_action" data-group-id="6304082590873682434" data-item-id="6304082590873682434" data-format="0">
+
+
+    <a href="/item/6304082590873682434/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">李克强总理在武汉长江干堤涉水而行指挥救灾</h3>
+
+
+
+        <div class="list_img_holder_large list_img_holder_large_fix" style="background: none;">
+            <img src="http://p3.pstatp.com/large/9ef000cd7adf7e10cd1" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;">
+
+        </div>
+
+        <div class="item_info">
+
+
+            <span class="hot_label space">热</span>
+
+
+
+            <span class="src space">中国政府网</span>
+            <span class="cmt space">评论&nbsp;640</span>
+            <span class="time" title="2016-07-06 15:31">1分钟前</span>
+            <span data-id="6304082590873682434" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467789678" class=" has_action" data-group-id="6303249905667031297" data-item-id="6303676223276974593" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6303676223276974593/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">蜂蜜真的营养丰富、延年益寿吗？给幼儿选什么样的蜂蜜最好？</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9e00002fbf5f5a5d55b" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9aa00047d15ed85f4cb" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9df00029af9c5f86666" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">常青藤爸爸</span>
+            <span class="cmt space">评论&nbsp;628</span>
+            <span class="time" title="2016-07-06 15:21">11分钟前</span>
+            <span data-id="6303249905667031297" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467789078" class="middle_mode has_action" data-group-id="6304048318231445762" data-item-id="6304051009001882113" data-format="0" data-isshown="true">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/i6304051009001882113/" class="article_link clearfix " data-action-label="click_headline">
+
+            <div class="desc" style="vertical-align: top;">
+
+        <h3 class="dotdot line3 image-margin-right">外媒评中日战机东海缠斗：几乎爆发空战 日本完败</h3>
+
+
+
+        <div class="item_info" style="margin-top: 12px;">
+
+
+
+
+
+
+            <span class="src space">参考消息</span>
+            <span class="cmt space">评论&nbsp;663</span>
+            <span class="time" title="2016-07-06 15:11" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">21分钟前</span>
+            <span data-id="6304048318231445762" class="dislike-news fr fly-right"></span>
+
+        </div>
+
+            </div>
+        <div class="list_img_holder" style="vertical-align: top; background: none;">
+            <img src="http://p3.pstatp.com/list/9d8000488608067abaf" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;">
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467788478" class=" has_action" data-group-id="6610052089" data-item-id="6288894785713340930" data-format="0">
+
+    <i class="icon_ad"><span data-show="show" ad-log-extra="{&quot;price&quot;:35600,&quot;rit&quot;:1,&quot;req_id&quot;:&quot;2451271467790278737&quot;}" data-track="" ad-id="6610056007" ad-tag="embeded_ad" ad-label="推广"></span></i>
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6288894785713340930/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">iPhone不用这个软件亏了，外出几乎不浪费流量！</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p5a.pstatp.com/list/3f0006cb1c3f350d7c" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/3f0006cb1dfbffb1e3" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/2f50004d3635a50696a" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+            <span class="ad_label space">推广</span>
+            <span class="src space">腾讯WIFI管家</span>
+            <span class="cmt space">评论&nbsp;0</span>
+            <span class="time" title="2016-07-06 15:01">31分钟前</span>
+            <span data-id="6610052089" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467787878" class=" has_action" data-group-id="6304047144861860098" data-item-id="6304048664478220801" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/i6304048664478220801/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">戴秉国称南海仲裁结果是"废纸" 外媒:暗示中国底线</h3>
+
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">参考消息</span>
+            <span class="cmt space">评论&nbsp;157</span>
+            <span class="time" title="2016-07-06 14:51">41分钟前</span>
+            <span data-id="6304047144861860098" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467787278" class=" has_action" data-group-id="6303756469947318529" data-item-id="6303757807355167234" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6303757807355167234/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">农村的日常-出行方式</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/78f0009b20a73c7ae9e" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/78f0009b2300c596f8c" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/97e00062bb3b8c7deba" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+            <span class="recommend_label space">荐</span>
+
+
+            <span class="src space">袁丙强</span>
+            <span class="cmt space">评论&nbsp;3</span>
+            <span class="time" title="2016-07-06 14:41">51分钟前</span>
+            <span data-id="6303756469947318529" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467786678" class=" has_action" data-group-id="6304089798311280898" data-item-id="6304091742907924993" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/i6304091742907924993/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">为什么有的人正面好看，有的人侧面好看？</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9c0000164d7bea487c0" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9d900067b6804890082" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9d70006e6350367f500" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">美即是正义</span>
+            <span class="cmt space">评论&nbsp;1</span>
+            <span class="time" title="2016-07-06 14:31">1小时前</span>
+            <span data-id="6304089798311280898" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467786078" class=" has_action" data-group-id="6304032671422529794" data-item-id="6304023537422172674" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6304023537422172674/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">中国罕见集结海军三大舰队主力，背后的实情令国人振奋俄将军点赞</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/97e00069eb01451686c" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/78f000a23a3d257e721" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/97d00069a6227c624f4" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">三体军事</span>
+            <span class="cmt space">评论&nbsp;151</span>
+            <span class="time" title="2016-07-06 14:21">1小时前</span>
+            <span data-id="6304032671422529794" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467785478" class=" has_action" data-group-id="6303904005361828098" data-item-id="6303827420801663490" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6303827420801663490/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">竟想不到!难以相信他们竟然曾在一起过</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9e00003ca12ff4510fd" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9e10003c6c4dee73f6e" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9aa00054bb42279797a" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">三七娱乐</span>
+            <span class="cmt space">评论&nbsp;533</span>
+            <span class="time" title="2016-07-06 14:11">1小时前</span>
+            <span data-id="6303904005361828098" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467784878" class="middle_mode has_action" data-group-id="6304044449128710401" data-item-id="6298924583265239554" data-format="0" data-isshown="true">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6298924583265239554/" class="article_link clearfix " data-action-label="click_headline">
+
+            <div class="desc" style="vertical-align: middle;">
+
+        <h3 class="dotdot line3 image-margin-right">房价的拐点要来了</h3>
+
+
+
+        <div class="item_info" style="margin-top: 12px;">
+
+
+
+
+
+
+            <span class="src space">一只逍遥客</span>
+            <span class="cmt space">评论&nbsp;102</span>
+            <span class="time" title="2016-07-06 14:01" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">1小时前</span>
+            <span data-id="6304044449128710401" class="dislike-news mid-space fr"></span>
+
+        </div>
+
+            </div>
+        <div class="list_img_holder" style="vertical-align: middle; background: none;">
+            <img src="http://p3.pstatp.com/list/7fa0008c33ec036d8a7" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;">
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467784278" class=" has_action" data-group-id="6860498895" data-item-id="6303374238854152706" data-format="0">
+
+    <i class="icon_ad"><span data-show="show" ad-log-extra="{&quot;price&quot;:25000,&quot;rit&quot;:1,&quot;req_id&quot;:&quot;2451271467790278737&quot;}" data-track="" ad-id="6860505262" ad-tag="embeded_ad" ad-label="推广"></span></i>
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6303374238854152706/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">妹纸你们不好好上班，这是在玩什么呢！</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9ed000013f047def91a" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p9.pstatp.com/list/9ed000013f3b935e07c" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9ed000013f5bbfc96fd" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+            <span class="ad_label space">推广</span>
+            <span class="src space">开心消消乐</span>
+            <span class="cmt space">评论&nbsp;3</span>
+            <span class="time" title="2016-07-06 13:51">1小时前</span>
+            <span data-id="6860498895" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467783678" class="middle_mode has_action" data-group-id="6303726146798321921" data-item-id="6303727566222000641" data-format="0" data-isshown="true">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6303727566222000641/" class="article_link clearfix " data-action-label="click_headline">
+
+            <div class="desc" style="vertical-align: middle;">
+
+        <h3 class="dotdot line3 image-margin-right">要不要追着宝宝喂饭？丨碰撞</h3>
+
+
+
+        <div class="item_info" style="margin-top: 12px;">
+
+
+
+
+
+
+            <span class="src space">大眼妈</span>
+            <span class="cmt space">评论&nbsp;428</span>
+            <span class="time" title="2016-07-06 13:41" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">1小时前</span>
+            <span data-id="6303726146798321921" class="dislike-news mid-space fr"></span>
+
+        </div>
+
+            </div>
+        <div class="list_img_holder" style="vertical-align: middle; background: none;">
+            <img src="http://p1.pstatp.com/list/97e000614d643caf725" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;">
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467783078" class=" has_action" data-group-id="6303746529408811265" data-item-id="6303747863855759873" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6303747863855759873/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">小学生请假条，看一次笑一次，爹妈乐翻，老师气晕！</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/97d00061f8de684c86b" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/97d00061fc308280849" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/97e000623d720a1321a" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">关于教育</span>
+            <span class="cmt space">评论&nbsp;389</span>
+            <span class="time" title="2016-07-06 13:31">2小时前</span>
+            <span data-id="6303746529408811265" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="True" hot-time="1467782478" class="middle_mode has_action" data-group-id="6301132047058469378" data-item-id="6301132047058469378" data-format="0" data-isshown="true">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6301132047058469378/" class="article_link clearfix " data-action-label="click_headline">
+
+            <div class="desc" style="vertical-align: middle;">
+
+        <h3 class="dotdot line3 image-margin-right">老夫少妻相差20岁，新婚之夜太尴尬</h3>
+
+
+
+        <div class="item_info" style="margin-top: 12px;">
+
+
+
+
+
+
+            <span class="src space">光速电影馆</span>
+            <span class="cmt space">评论&nbsp;94</span>
+            <span class="time" title="2016-07-06 13:21" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">2小时前</span>
+            <span data-id="6301132047058469378" class="dislike-news mid-space fr"></span>
+
+        </div>
+
+            </div>
+        <div class="list_img_holder" style="vertical-align: middle; background: none;">
+            <img src="http://p1.pstatp.com/list/911000de16962c052b2" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;">
+
+            <span class="video-btn"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467781878" class=" has_action" data-group-id="6304025615943139585" data-item-id="6303779028620804610" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6303779028620804610/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">深夜听到一声猫的惨叫，没发现异样，3天后却看到令人心疼的一幕</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/78f0009bbfd4669e1e9" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/97d00063136250b6527" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/97e000635872e1f87e2" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">猫妈狗爸</span>
+            <span class="cmt space">评论&nbsp;194</span>
+            <span class="time" title="2016-07-06 13:11">2小时前</span>
+            <span data-id="6304025615943139585" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467781278" class=" has_action" data-group-id="6304028796631400705" data-item-id="6304033687516234241" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/i6304033687516234241/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">杜特尔特上任4天杀58人 千余名毒犯警局自首</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9d60006ef2f66ffd1da" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p2.pstatp.com/list/9d9000677914a3879c9" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9d00006eb7131573dbb" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">环球每日精选</span>
+            <span class="cmt space">评论&nbsp;353</span>
+            <span class="time" title="2016-07-06 13:01">2小时前</span>
+            <span data-id="6304028796631400705" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467780678" class=" has_action" data-group-id="6303793816768086274" data-item-id="6303795360510771714" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6303795360510771714/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">有多少人知道？在洗发水里加两片这个，乌黑浓密没头屑</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9d3000396fd2e1a01bf" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9d200043c273016d779" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9d200043c28c04defbb" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">美妆课堂</span>
+            <span class="cmt space">评论&nbsp;191</span>
+            <span class="time" title="2016-07-06 12:51">2小时前</span>
+            <span data-id="6303793816768086274" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467780078" class=" has_action" data-group-id="6304052554968744194" data-item-id="6304054050304295426" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6304054050304295426/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">这些土办法竟然能把蚊子消灭干净，以前都白白跟蚊子作斗争了</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9da0004a05c6ebcd230" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9d70005141e6180c5d9" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/a0400006e4cb245f3ce" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">会生活</span>
+            <span class="cmt space">评论&nbsp;1</span>
+            <span class="time" title="2016-07-06 12:41">2小时前</span>
+            <span data-id="6304052554968744194" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467779478" class=" has_action" data-group-id="6303761726265737474" data-item-id="6303763281865605633" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6303763281865605633/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">脚趾甲老往肉里长，不要烦恼，教你一招轻松解决</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9cf0002a25aceecd7c2" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9d200023003d214632e" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9d200023004a731212e" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+
+
+
+
+
+
+            <span class="src space">会生活</span>
+            <span class="cmt space">评论&nbsp;1</span>
+            <span class="time" title="2016-07-06 12:31">3小时前</span>
+            <span data-id="6303761726265737474" class="dislike-news  fr"></span>
+
+        </div>
+
+    </a>
+</section>
+
+
+
+<section data-is-video="False" hot-time="1467778878" class=" has_action" data-group-id="6304090285660733697" data-item-id="6304092167035945474" data-format="0">
+
+
+    <div class="one-px-border"></div>
+
+    <a href="/item/6304092167035945474/" class="article_link clearfix " data-action-label="click_headline">
+
+        <h3 class="dotdot line3 ">一些土办法教你祛除雀斑，必须赞一个，让你不再有斑点烦恼</h3>
+
+
+        <div class="list_image">
+            <ul class="clearfix">
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9da000679318b15ae7b" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p1.pstatp.com/list/9d70006efee9f54d93a" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+                <li class="list_img_holder" style="background: none;"><img src="http://p3.pstatp.com/list/9d9000684befcd97308" onerror="errorimg.call(this)" onload="loadimg.call(this)" style="opacity: 1;"></li>
+
+            </ul>
+        </div>
+
+
+        <div class="item_info">
+            <span class="src space">美妆课堂</span>
+            <span class="cmt space">评论&nbsp;1</span>
+            <span class="time" title="2016-07-06 12:21">3小时前</span>
+            <span data-id="6304090285660733697" class="dislike-news  fr"></span>
+        </div>
+
+    </a>
+</section>
+
+
+
+
+
+
+
+-->
+
+    </div>
+    <div class="list_bottom" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+        <section class="loadmoretip"><a href="#" old-text="">加载中...</a></section>
+    </div>
+
+</content>
+
+
+
+</body>
+<script data-main="/dist/webapp/js/config/phooer" src="/dist/webapp/js/require.js"></script>
+<script>
+
+</script>
+</html>

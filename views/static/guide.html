@@ -1,0 +1,32 @@
+<% /* %>
+
+<!-- -->
+<%- partial('../sidebar') %>
+
+<% */ %>
+
+<div id='content' class="guide-page">
+    <ul class='breadcrumb'>
+        <li><a href='/'>主页</a><span class='divider'>/</span></li>
+        <li class='active'>学习指南</li>
+    </ul>
+
+    <div class='topic segment'>
+      <div class="topic_content">
+
+<%- markdown(multiline(function () {
+/*
+### 学习指南
+CNode 社区为国内最大最具影响力的 Node.js 开源技术社区，致力于 Node.js 的技术研究。
+
+### 移动客户端
+
+客户端由 [@soliury](https://cnodejs.org/user/soliury) 开发维护。
+
+*/
+})) %>
+
+      </div>
+    </div>
+  </div>
+</div>

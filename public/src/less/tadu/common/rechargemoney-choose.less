@@ -1,0 +1,61 @@
+/*
+ * @author: zhouweili
+ * @module:充值金额选择
+ *
+ */
+.rechargemoney-choose {
+    overflow:hidden;
+      li {
+            .box(@ori: horizontal);
+            margin-bottom: 9px;
+             width: 50%;
+             float:left;
+            .tc;
+            a {
+                .align;
+                .box(@ori:vertical);
+                background-color: @choose-c;
+                border: 1px solid @choose-b;
+                .flex;
+                height: 70px;
+                margin: 0 9px 0 0;
+                .pack;
+                h2 {
+                    font-size: @pay-f;
+                    margin: 5px 0 6px;
+                    line-height: 20px;
+
+                }
+                span {
+                    font-size: @more_size;
+                    color: @time_cl;
+                    .d(b);
+                    line-height: 18px;
+                }
+            }
+            a:nth-child(even) {
+                margin-right: 0;
+            }
+            .none {
+                border: none;
+                background-color: white;
+            }
+            .current {
+                background: white;
+                border-color: @btn_orange;
+            }
+       }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+        .alipay-m {
+            height: 70px;
+            line-height: 70px;
+            margin: 0;
+        }
+}
+
+
+
+

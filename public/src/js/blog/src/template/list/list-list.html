@@ -1,0 +1,81 @@
+
+<!--
+            <section class="style_list">
+                <nav>
+                    <li>
+                        <a href="#" class="sort_green  sort_current  green_current">男生</a>
+                        <a href="#" class="sort_green">女生</a>
+                        <a href="#" class="sort_green">文学</a>
+                        <a href="#" class="sort_green">名家</a>
+                        <a href="#" class="sort_green">热门</a>
+                     </li>
+                </nav>
+            </section>
+
+<div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+            <a href="#" id="menuLink1" class="pure-menu-link">Contact</a>
+            <ul class="pure-menu-children">
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Email</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tumblr Blog</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+-->
+
+
+    <a href="#detail/<%= platform %>/index/1">
+    <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+        <img src="/img/1.jpg" alt="" />
+        <p class="description">
+            描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+            描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+            描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+            描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+        </p>
+        <p class="info">
+            <span class="author">Author</span>
+            <span class="location">Location</span>
+            <span class="date">2015.10.1</span>
+            <span class="date">5天</span>
+        </p>
+    </div>
+    </a>
+    <a href="#detail/<%= platform %>/index/2">
+    <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+        <img src="/img/2.jpg" alt="" />
+        <p class="description">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+        <p class="info">
+            <span class="author">Author</span>
+            <span class="location">Location</span>
+            <span class="date">2015.10.1</span>
+            <span class="date">5天</span>
+        </p>
+    </div>
+    </a>
+
+    </li>
+    <% _.each(items, function (item) { %>
+    <% if ( platform == 'webapp') { %>
+    <a href="#detail/<%= platform %>/index/<%= item.id %>">
+    <% } else { %>
+    <a href="nirtou:http://beequick.leanapp.cn/src/html/blog/index.html#detail/<%= platform %>/index/<%= item.id %>">
+    <% }; %>
+    <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+        <img src="<%= item.img %>" alt="" />
+        <p class="description">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+        <p class="info">
+            <span class="author"><%= item.name %></span>
+            <span class="location">Location</span>
+            <span class="date">2015.10.1</span>
+            <span class="day"><%= item.day %></span>
+        </p>
+    </div>
+    </a>
+    <% }); %>
+
+

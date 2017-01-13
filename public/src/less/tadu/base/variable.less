@@ -1,0 +1,397 @@
+
+//public less
+
+// Color define
+//主色深蓝
+@dark_blue: #1e2a3a;
+//默认文字  and 分类
+@c_default: #222222;
+//绿色文字
+@c_blue: #25c4a6;
+//链接色
+@c_href: #65b7e7;
+//数据提示文字
+@c_num: #ff6a67;
+//女生字
+@c_girl: #ff6b77;
+//男生字
+@c_boy: #86abf2;
+//出版字
+@c_public: #faaa47;
+//简介字
+@c_sum: #999999;
+//更多
+@c_more: #777777;
+//控件边框
+@c_border:  #e5e5e5;
+@help_bg:   #e2e2e2;
+@kj_border: #f1f1f1;
+
+//按钮橙色状态
+@btn_orange:       #f3563e;
+@btn_orange_click: #c24532;
+
+//按钮绿色状态
+@btn_blue:       #25c4a6;
+@btn_blue_click: #1e9d85;
+
+//按钮红色
+@btn_red:       #fa4855;
+@btn_red_click: #c83a44;
+
+//分类颜色
+@sort_red:    #f75b5a;
+@sort_orange: #faab4a;
+@sort_zi:     #9289e8;
+@sort_lv:     #99c937;
+@sort_blue:   #e8effe;
+
+
+@fullw: 100%;
+// Font size
+
+//标题
+@title: 1.9rem;
+//标题文字
+@title_size: 1.7rem;
+//书名文字
+@name_size: 1.4rem;
+//分类 和 简介文字
+@sort_size: 1.3rem;
+//moresize
+@more_size: 1rem;
+
+//public
+.sort_red {
+    background-color: @sort_red;
+}
+.sort_orange {
+    background-color: @sort_orange;
+}
+.sort_zi {
+    background-color: @sort_zi;
+}
+.sort_lv {
+    background-color: @sort_lv;
+}
+.sort_blue {
+    background-color: @sort_blue;
+}
+.sort_x_girl {
+    background-color: @c_girl;
+}
+.sort_x_boy {
+    background-color: @c_boy;
+}
+.sort_x_public {
+    background-color: @c_public;
+}
+.sort_green {
+    background-color: #eaf8f3;
+}
+.sort_current {
+    background-color: #9ebbf7;
+    color: #fff!important;
+}
+.red_current {
+    background-color: #fd8eba;
+}
+.orange_current {
+    background-color: #ffc26c;
+}
+.green_current {
+    background-color: #49e4ad;
+}
+.box(@ori:vertical) {
+    width:@fullw;
+    display:-webkit-box;
+    display:-moz-box;
+    display:-o-box;
+    display:box;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    -webkit-box-orient:@ori;
+    -moz-box-orient:@ori;
+    -o-box-orient:@ori;
+ }
+.flex{
+    -webkit-box-flex:1;
+}
+.pack{
+    -webkit-box-pack:center;
+}
+.align{
+    -webkit-box-align: center;
+}
+.justify{
+    -webkit-box-pack:justify;
+}
+.p(r){
+    position: relative;
+}
+.p(a){
+    position: absolute;
+}
+.p(f){
+    position: fixed;
+}
+.f(l){
+    float: left;
+}
+.f(r){
+    float: right;
+}
+.d(b){
+    display: block;
+}
+.d(n){
+    display: none;
+}
+.d(in){
+    display: inline-block;
+}
+.tc{
+    text-align: center;
+}
+.over{
+    overflow: hidden;
+}
+.text_over{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}
+.radius(@b_width: 5px){
+    border-radius: @b_width;
+}
+.border(@b_color: @c_border){
+    border: 1px solid @b_color;
+}
+.clearfix:after{
+    //content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+.line {
+    height: 10px;
+    background-color: @rank-banner-border;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+.thin_line{
+    border-bottom:1px solid #f1f1f1;
+}
+.line_two{
+      width: 100%;
+      overflow: hidden;
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      line-height: 18px;
+}
+.line_three{
+      width: 100%;
+      overflow: hidden;
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+}
+.opa{
+  opacity: 0.7;
+}
+.pos{
+    .p(a);
+    top:20px;
+    padding:0 12px;
+    font-size: 1.3rem!important;
+    color: #999!important;
+}
+.pos_author{
+    .p(a);
+    bottom:20px;
+    width:100%;
+    display: -webkit-box;
+    .pack;
+    .align;
+    color: #999!important;
+    span{
+        .d(b);
+        width: 66.6%;
+        font-size: 0.6rem!important;
+        white-space: nowrap;
+        text-overflow:ellipsis;
+        overflow: hidden;
+    }
+
+}
+//书籍详情页背景色
+@bg_color: #1e2a3a;
+//书籍详情页按钮
+@detail_y: #fff45c;
+//分类
+@classify-br: #f0f0f0;
+@hot-size:    1.6rem;
+@small-size:  0.8rem;
+//书籍详情页
+@intro-sz:   1.2rem;
+@sale-cl:    #ffa749;
+@button-cl:  #fa4956;
+@time_cl:    #666666;
+@evaluate_f: 1.1rem;
+@border_g:   #f2f2f2;
+//免费
+@free-bg: #f8f8f8;
+//排行
+@rank-title:         1.5rem;
+@rank-border:        #e8e8e8;
+@rank-banner-border: #f5f5f5;
+@number-cl:          #ff9393;
+@rank-list-border:   #f8f8f7;
+@green-br:           #2cc6a9;
+//打赏
+@orange: #fd890a;
+@line-s: #cccccc;
+
+//书评
+@comment-list: #333333;
+
+//作者详细页边框色
+@author-b: #e8dbca;
+
+.hidden {
+    display: none;
+}
+
+//充值
+@pay-o:    #fd890a;
+@pay-f:    2.1rem;
+@pay-b:    #c9c9c9;
+@pay-t:    #d7d7d7;
+@choose-c: #fff3ee;
+@choose-b: #efded8;
+@pay-b-r:  #f9aa9e;
+
+.pay-btn {
+    height: 40px;
+    line-height: 40px;
+    .tc;
+    font-size: @hot-size;
+    width: 100%;
+    border-radius: 5px;
+    .d(b);
+    margin: 15px 0 0;
+    -webkit-background-clip: padding-box;
+}
+.red-btn {
+    background-color: @btn_orange;
+    color: white;
+    border: 1px solid @btn_orange;
+}
+//点击状态
+.red-btn-c {
+    background-color: @btn_orange_click;
+    border: 1px solid @btn_orange_click;
+}
+//不可用
+.disable {
+    opacity: 0.5;
+}
+.white-btn {
+    border: 1px solid @btn_blue;
+    color: @btn_blue;
+}
+.white-btn:hover {
+    background-color: #e7e7e7;
+}
+.green-btn {
+    background-color: @btn_blue;
+    color: white;
+    border: 1px solid @btn_blue;
+}
+//点击状态
+.green-btn-c {
+    background-color: @btn_blue_click;
+    border: 1px solid @btn_blue_click;
+}
+.forbid_btn{
+  opacity: 0.5;
+}
+
+.book_cover{
+    .d(b);
+    .p(r);
+    margin-right: 15px;
+    width: 90px;
+    height: 124px;
+    float: left;
+    img{
+        width: 90px;
+        height: 124px;
+    }
+    p{
+        font-size: 0.9rem;
+        .tc;
+    }
+    .free_red{
+        .p(a);
+        .d(b);
+        width: 31px;
+        top: 0;
+        left: 0;
+        img{
+          width: 31px;
+          height: 31px;
+        }
+    }
+}
+.submit_blue{
+    background-color: @btn_blue;
+}
+.href_color{
+    color: @c_href;
+}
+.sys_d_list {
+    font-size: @name_size;
+}
+.white-bg {
+    background: #ffffff;
+}
+
+//主页背景
+article,#container {
+    width: 100%;
+    background-color: #ffffff;
+    .bannerSmall{
+        width: 100%;
+        .sDetail{
+            width: 100%;
+            border-color: #f8f8f8;
+            tr{
+                display: -webkit-box;
+                border-bottom: 1px solid #f8f8f8;
+                td{
+                    .flex;
+                 a{
+                    .d(b);
+                    width: 100%;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tap_bg{
+    background-color: #f8f8f8;
+}

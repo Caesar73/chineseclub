@@ -1,0 +1,199 @@
+@b_title_size: 1.7rem;
+@b_s_size: 1.3rem;
+.buy_confirm {
+	padding: 0 15px 0;
+	.con_detail {
+		width: 100%;
+		li {
+			.box(@ori: horizental);
+			margin: 10px 0;
+			.align;
+			span {
+				.d(b);
+				&.con_name {
+					color: #666666;
+					font-size: @b_s_size;
+					width: 70px;
+					text-align: right;
+				}
+				&.con_title {
+				.flex;
+				font-size: 1.5rem;
+				i.orange {
+					color: @orange;
+					font-size: 1.7rem;
+				}
+				i.grey {
+					color: #666666;
+					font-size: 1.3rem;
+					a {
+						text-decoration: line-through;
+						font-size: 1.3rem;
+						color: #666666;
+					}
+				}
+				i.b_more {
+					color: @sort_red;
+					font-size: @b_s_size;
+					padding-left: 5px;
+				}
+			}
+			}
+		}
+		li:first-child {
+			margin-top: 15px;
+		}
+	}
+	.auto_buy {
+		.box(@ori: horizental);
+		.align;
+		padding-top: 8px;
+		span {
+			.d(b);
+			padding-left: 10px;
+			font-size: @intro-sz;
+			color: #555;
+			line-height: 25px;
+			width: 95%;
+		}
+		input[type="checkbox"] {
+			.d(in);
+		    background: url(../images/check.png) no-repeat 0 0;
+		    background-size: 100%;
+		    height: 15px;
+		    width: 15px;
+			border: none;
+			-webkit-appearance: none;
+			.p(r);
+			top: -14px;
+		}
+		input[type="checkbox"]:checked {
+		    background-position: 0 -15px;
+		}
+		@media screen and (min-width: 420px) {
+			input[type="checkbox"] {
+				top: -2px;
+			}
+    	}
+	}
+	a.btn_confirm {
+		width: 100%;
+		.d(b);
+		height: 40px;
+		line-height: 40px;
+		.tc;
+		font-size: 1.6rem;
+		.radius(@b_width:5px);
+		background-color: @btn_orange;
+		color: #fff;
+		margin: 10px 0 15px 0;
+	}
+	a.btn_confirm:active {
+			background-color: @btn_orange_click;
+		}
+	a.btn_charge {
+		background-color: @btn_red;
+	}
+	a.btn_charge:active {
+			background-color: @btn_red_click;
+		}
+	a.btn_none {
+		opacity: 0.5;
+	}
+	.b_space {
+		width: 100%;
+		margin-bottom: 20px;
+		a {
+			.d(b);
+			width: 100%;
+			.tc;
+			color: @c_href;
+			font-size: @b_s_size;
+			text-decoration: underline;
+		}
+	}
+	.warn_tip {
+		margin: 55px 0 20px 0;
+		width: 100%;
+		.box(@ori: horizental);
+		.align;
+		span {
+			.d(b);
+			border-bottom:1px solid #d7d7d7;
+			.flex;
+		}
+		a {
+			.d(b);
+			font-size: 1.5rem;
+			color: #b7b7b7;
+			padding: 0 30px;
+		}
+	}
+	.w_tip_list {
+		li {
+			color: #b7b7b7;
+			font-size: 1.3rem;
+			line-height: 1.8rem;
+			i.red {
+				color: #ff7f7f;
+			}
+		}
+	}
+}
+.b_discount{
+	padding: 14px 15px 5px;
+	p{
+		padding-bottom: 14px;
+		font-size: @b_title_size;
+	}
+	ul{
+		width: 100%;
+		overflow: hidden;
+		li{
+			height: 44px;
+			width: 100%;
+			.box(@ori:horizental);
+			.pack;
+			.align;
+			margin-bottom: 10px;
+			&.b_part{
+				a:first-child{
+						margin-right: 5px;
+					}
+					a:last-child{
+						margin-left: 5px;
+					}
+				}
+				a{
+					.d(b);
+					.flex;
+					.tc;
+					font-size: 1.4rem;
+					.border(@b_color: @c_border);
+					height: 100%;
+					.p(r);
+					line-height: 44px;
+					i{
+						.p(a);
+						right:-1px;
+						top:-1px;
+						background: url(../images/discount.png) no-repeat 0 -43px;
+						background-size: 100%;
+						width: 42px;
+						height: 42px;
+						.d(b);
+						// em.discount_num{
+						// 	.p(a);
+						// 	.d(b);
+						// 	width: 38px;
+						// 	font-size: 1rem;
+						// 	right: -6px;
+						//     bottom: 3px;
+						//     color: #fff;
+						//    -webkit-transform: rotate(45deg);
+						// }
+					}
+				}
+		}
+	}
+}

@@ -1,0 +1,61 @@
+//focus
+.focus{
+    width: 100%;
+    margin: 0 auto;
+    .p(r);
+    .over;
+ }
+.focus .hd{
+    width: 100%;
+    .p(a);
+     z-index: 1;
+     bottom: 1.5rem;
+     padding-right: 15px;
+ }
+.num_list {
+    .p(a);
+    right: 1.9rem;
+    z-index: 100;
+    li{
+    height: 4px;
+    width: 4px;
+    margin: 0 1px;
+    .f(l);
+    text-indent: -99999px;
+    background-color: #959595;
+    //opacity: 0.2;
+    .radius(@b_width:2px);
+    color: transparent;
+    &.on{
+        background-color: #25c4a6;
+        opacity: 0.7;
+        width: 6px;
+        height: 6px;
+        .radius(@b_width:3px);
+        .p(r);
+        top: -1px;
+         }
+    }
+ }
+.focus .hd ul .on{
+    z-index: 100000;
+    background-color: #1e2a3a;
+    opacity: 0.7;
+    width: 6px;
+    height: 6px;
+    .radius(@b_width:3px);
+}
+.focus .bd{
+    .p(r);
+    z-index: 0;
+}
+.focus .bd li {
+    a{
+        .d(b);
+
+        img{
+            width: 100%;
+            display: block;
+        }
+    }
+}

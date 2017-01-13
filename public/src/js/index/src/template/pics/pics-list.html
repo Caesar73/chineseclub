@@ -1,0 +1,40 @@
+
+<ul class="table-view pic-list">
+    <li class="table-view-cell upload-cell">
+        <input id="upload-img" class="" type="file" style="display:none;" />
+        <div id="upload-img-btn">
+            <img src="/images/v1/addpic.png" alt="添加图片">
+        </div>
+        <div id="preview"></div>
+        <div class="upload-board">
+            <div id="choose">
+                <span>重新选择</span>
+            </div>
+            <div id="upload">
+                <span>上传图片</span>
+            </div>
+        </div>
+
+    </li>
+    <% _.each(items, function (item, index) { %>
+    <li data-index="<%= items.length - index %>" class="table-view-cell
+    <% if ( ((index - 3)%5 == 0)&&(index > 5) || (index == 3) ) { %>
+    last
+    <% } %>
+    ">
+        <a class="navigate-right" href="#gallery/<%= item.id %>">
+            <img class="lpic" src="<%= item.href %>" alt="">
+        </a>
+    </li>
+    <% }); %>
+</ul>
+
+<ul class="list-gallery">
+    <% _.each(items, function (item, index) { %>
+    <li class="table-view-cell" data-id="<%= item.id %>" data-index="<%= items.length - index %>">
+        <a class="navigate-right" href="#gallery/<%= item.id %>">
+            <img src="<%= item.href %>" alt="">
+        </a>
+    </li>
+    <% }); %>
+</ul>

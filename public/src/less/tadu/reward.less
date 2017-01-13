@@ -1,0 +1,330 @@
+.reward_tab {
+    line-height: 45px;
+    border-bottom: 1px solid #25c4a6;
+    .box(@ori:horizontal);
+    .tc;
+    padding: 0 10px;
+
+    a {
+        .d(b);
+        .flex;
+        font-size: 1.7rem;
+    }
+
+    .current {
+        color: #25c4a6;
+    }
+}
+
+.reward-book {
+    padding: 18px 15px;
+
+    img {
+        width: 50px;
+        height: 69px;
+        .f(l);
+        margin-right: 15px;
+    }
+
+    div {
+        margin-top: 5px;
+
+        h1 {
+            font-size: @hot-size;
+            line-height: 20px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            span {
+                font-size: @intro-sz;
+                line-height: 26px;
+
+                .menzhu {
+                    background: url(../images/mengzhu-small.png);
+                    width: 20px;
+                    height: 12px;
+                    display: inline-block;
+                    background-size: 100%;
+                    margin: 0 15px 0 4px;
+                    position: relative;
+                    top: 1px;
+                }
+
+                em {
+                    font-size: @title_size;
+                    color: @orange;
+                }
+            }
+
+            i {
+                color: @line-s;
+                padding: 0 15px;
+                .d(in);
+                font-size: 1.2rem;
+            }
+
+            @media only screen and (min-width: 321px) {
+                i {
+                    padding: 0 32px;
+                }
+            }
+        }
+    }
+}
+
+.reward-tab {
+    padding: 0 15px;
+
+    ul {
+        .box(@ori:horizontal);
+
+        li {
+            .flex;
+
+            span {
+                .d(b);
+                .tc;
+            }
+        }
+    }
+
+    .reward-tadou {
+        margin: 14px 0 8px 0;
+
+        li {
+            width: 33.5%;
+            margin-right: 7px;
+            background-color: @rank-banner-border;
+            border: 1px solid #ececec;
+            color: #999999;
+
+            span {
+                line-height: 46px;
+                font-size: @sort_size;
+            }
+        }
+
+        .current {
+            border: 1px solid @btn_blue;
+            background-color: white;
+            color: @btn_blue;
+        }
+
+        .black {
+            color: #333;
+        }
+
+        li:first-child {
+            width: 34.5%;
+        }
+
+        li:last-child {
+            width: 32%;
+            margin-right: 0;
+        }
+    }
+
+    .reward-tadous {
+        margin: 8px 0 0;
+    }
+
+    .reward-pay {
+        padding: 15px 0;
+
+        span {
+            font-size: @sort_size;
+            height: 31px;
+            line-height: 31px;
+            .f(l);
+        }
+
+        a {
+            height: 33px;
+            line-height: 33px;
+            width: 89px;
+            border: 1px solid #ff6a67;
+            .f(r);
+            .tc;
+            border-radius: 5px;
+            font-size: @sort_size;
+            color: #ff6a67;
+        }
+
+        .ticket {
+            width: 109px;
+        }
+    }
+
+    .btn {
+        .pay-btn;
+        .green-btn;
+    }
+    .btn_sub {
+        margin: 0 0 15px;
+    }
+    .btn:hover {
+        .green-btn-c;
+    }
+}
+
+.reward-new {
+    h1 {
+        padding: 15px 15px 0;
+        font-size: @title_size;
+    }
+
+    ul {
+        li {
+            border-bottom: 1px solid #f5f5f5;
+            padding: 13px 15px;
+
+            img {
+                width: 30px;
+                margin: 5px 10px 0;
+                .f(l);
+            }
+
+            div {
+                h2 {
+                    height: 19px;
+                    line-height: 19px;
+                    color: @c_sum;
+                    margin-bottom: 2px;
+
+                    .name {
+                        font-size: @evaluate_f;
+                        .f(l);
+                    }
+
+                    .time {
+                        .f(r);
+                        color: #999;
+                        font-size: 1.1rem;
+                    }
+                }
+
+                .tadou-s {
+                    font-size: 1.2rem;
+                    height: 21px;
+                    line-height: 21px;
+                    .d(b);
+                }
+            }
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.first_taglist {
+    a {
+        span {
+            margin-top: 5px;
+            .monkey {
+                width: 40px;
+            }
+            .mz {
+                width: 20px;
+                margin-left: 3px;
+                .p(r);
+                top: 2px;
+            }
+        }
+    }
+}
+
+.shadow {
+    width: 160px;
+    line-height: 50px;
+    background: #000;
+    opacity: 0.8;
+    color: #fff;
+    font-size: 1.5rem;
+    .tc;
+    border-radius: 5px;
+    .p(a);
+    top: 257px;
+    left: 50%;
+    margin-left: -80px;
+}
+.shadow_box {
+    line-height: 25px;
+    padding: 15px;
+    width: 270px;
+    margin-left: -135px;
+    span {
+        .d(b);
+    }
+}
+.leader {
+    padding: 13px 15px;
+    img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    div {
+        .p(r);
+        margin: 5px 0;
+        h1 {
+            font-size: 1.4rem;
+            margin: 5px 0 0;
+            line-height: 22px;
+            i {
+                background: url(../images/mengzhu-small.png);
+                width: 20px;
+                height: 12px;
+                .d(in);
+                background-size: 100%;
+                margin-left: 4px;
+                .p(r);
+                top: 1px;
+            }
+        }
+        p {
+            font-size: 1.2rem;
+        }
+        img {
+            .p(a);
+            right: 0;
+            top: 0;
+            width: 58px;
+            height: 41px;
+        }
+    }
+}
+.fans {
+    ul {
+        li {
+            a {
+                padding: 15px 25px;
+                .d(b);
+                border-bottom: 1px solid #e7e7e7;
+                .portrait {
+                    width: 30px;
+                    margin-right: 10px;
+                    .f(l);
+                }
+                div {
+                    line-height: 30px;
+                    font-size: 1.1rem;
+                    color: #999;
+                    img {
+                        width: 20px;
+                        .p(r);
+                        top: 2px;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+        li:last-child {
+            a {
+                border: none;
+            }
+        }
+    }
+}

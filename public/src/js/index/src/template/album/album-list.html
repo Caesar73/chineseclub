@@ -1,0 +1,12 @@
+
+<ul class="table-view">
+    <% _.each(items, function (item) { %>
+    <li class="table-view-cell">
+        <a class="navigate-right" href="#album-detail/<%= item.id %>">
+            <img src="<%= item.cover %>" alt="">
+        </a>
+        <a href="#album-detail/<%= item.id %>"><%= item.title %></a>
+        <a href="#"><%= item.category %></a>
+    </li>
+    <% }); %>
+</ul>

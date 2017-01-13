@@ -1,0 +1,36 @@
+<div class="fullscreen show"></div>
+<div class="main-pic">
+    <!--
+    <img src="/images/v1/fullscreen.png" alt="fullscreen" class="fullscreen">
+    -->
+    <a href="#close-gallery">
+        <img class="close" src="/images/v1/close.png" alt="close">
+    </a>
+    <% if (item.prepage != '0') { %>
+    <a href="<%= item.prepage %>">
+        <img class="prepage" src="/images/v1/prepage.png" alt="prepage">
+    </a>
+    <% } %>
+
+    <div class="pic-wrapper">
+        <img id="main-img" src="<%= item.picUrl %>" alt="">
+    </div>
+    </a>
+    <% if (item.nextpage != '0') { %>
+    <a href="<%= item.nextpage %>">
+        <img class="nextpage" src="/images/v1/nextpage.png" alt="nextpage">
+    </a>
+    <% } %>
+    <div class="select show"></div>
+    <div class="delete">
+        <span>删除</span>
+    </div>
+    <div class="download">
+        <span>下载</span>
+    </div>
+</div>
+
+
+<div class="fullscreen-board">
+    <img src="" alt="">
+</div>

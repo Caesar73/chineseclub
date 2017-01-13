@@ -1,0 +1,258 @@
+.rank {
+    h1{
+        line-height: 38px;
+        padding: 0 15px;
+        border-bottom: 1px solid @c_boy;
+        font-size: @title_size;
+    }
+    .boy {
+        color: @c_boy;
+    }
+    ul {
+        li {
+            a {
+                display: block;
+                padding: 16px 0 13px;
+                border-bottom: 1px solid #f5f5f5;
+
+                i {
+                    background: url(../../../images/rank-icon-big.png) no-repeat 0 -39px;
+                    width: 40px;
+                    height: 40px;
+                    display: inline-block;
+                    background-size: 100%;
+                    margin: 0 10px;
+                    float: left;
+                    .p(r);
+                    top: 4px;
+                }
+                h2 {
+                    color: #333333;
+                    font-size: 1.6rem;
+                    margin-bottom: 8px;
+                }
+                p {
+                    color: @c_sum;
+                    font-size: @sort_size;
+                }
+            }
+        }
+        li:nth-of-type(2) {
+            i {
+                background: url(../../../images/rank-icon-big.png) no-repeat 0 -3px;
+                background-size: 100%;
+            }
+        }
+        li:nth-of-type(3) {
+            i {
+                background: url(../../../images/rank-icon-big.png) no-repeat 0 -117px;
+
+                background-size: 100%;
+            }
+        }
+        li:nth-of-type(4) {
+            i {
+                background: url(../../../images/rank-icon-big.png) no-repeat 0 -232px;
+                background-size: 100%;
+            }
+        }
+        li:nth-of-type(5) {
+            i {
+                background: url(../../../images/rank-icon-big.png) no-repeat 0 -77px;
+
+                background-size: 100%;
+            }
+        }
+        li:nth-of-type(6) {
+            i {
+                background: url(../../../images/rank-icon-big.png) no-repeat 0 -153px;
+
+                background-size: 100%;
+            }
+        }
+        li:nth-of-type(7) {
+            i {
+                background: url(../../../images/rank-icon-big.png) no-repeat 0 -192px;
+                background-size: 100%;
+            }
+        }
+    }
+    .rank-banner {
+        width: 100%;
+
+        table {
+            width: 100%;
+            border-color: @rank-banner-border;
+
+            tr {
+                border-bottom: 1px solid @rank-banner-border;
+
+                td {
+                    width: 50%;
+                    display: inline-block;
+
+                    a {
+                        display: block;
+                        width: 100%;
+
+                        img {
+                            width: 100%;
+                            display: block;
+                        }
+                    }
+                }
+
+                td:nth-child(even) {
+                    border-left: none;
+                }
+            }
+
+            tr:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .nav {
+        .box(@ori: horizontal);
+        border-bottom: 1px solid #9ebbf7;
+
+        li {
+            .flex;
+            display: block;
+            .tc;
+            line-height: 46px;
+
+            a {
+                padding: 0;
+                font-size: 1.7rem;
+                border-bottom: none;
+            }
+        }
+        .boy {
+            a {
+                color: #9ebbf7;
+            }
+        }
+    }
+}
+.rank_ss {
+    .nav {
+        padding: 0 20px;
+        border-bottom: 1px solid #25c4a6;
+        .current {
+            a {
+                color: #25c4a6;
+            }
+        }
+    }
+}
+.free-content {
+    padding: 15px;
+    .d(b);
+
+    img {
+        width: 90px!important;
+        height: 124px!important;
+        margin-right: 15px;
+        .f(l);
+    }
+    h2 {
+        font-size: @name_size;
+        line-height: 27px;
+        margin-top: 5px;
+    }
+
+    span {
+        font-size: @sort_size;
+        line-height: 17px;
+        .d(b);
+        margin-bottom: 8px;
+    }
+
+    p {
+        font-size: @sort_size;
+        line-height: 18px;
+        color: @c_sum;
+        .over;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+}
+
+.rank-list {
+    .rank-content {
+        padding: 7.5px 15px;
+
+        .book_detail {
+            .text_over {
+                font-size: @rank-title;
+                line-height: 22px;
+
+                span {
+                    font-size: 0.9rem;
+                    background: #ff6a67;
+                    color: white;
+                    padding: 3px 6px 1px 7px;
+                    display: inline-block;
+                    line-height: 11px;
+                    border-radius: 4px;
+                    .p(r);
+                    bottom: 3px;
+                    margin-right: 6px;
+                }
+
+                @media screen and (min-width: 414px) {
+                    span {
+                        padding: 2px 6px 2px 6px;
+                        bottom: 1px;
+                    }
+                }
+            }
+            .text_title {
+                margin-bottom: 8px;
+                em {
+                    color: #65b7e7;
+                    float: right;
+                }
+            }
+            span {
+                line-height: 13px;
+            }
+            p {
+                line-height: 19px;
+            }
+            .already_read {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-size: 1.2rem!important;
+                color: #666;
+                span {
+                    .d(in);
+                    font-size: 1.2rem;
+                    border-radius: 4px;
+                    background-color: #fa4855;
+                    color: #fff;
+                    padding: 2px 2px 0 2px;
+                    margin-right: 10px;
+                }
+            }
+            .read {
+                margin-top: 16px;
+                span {
+                    background-color: #999999;
+                }
+            }
+        }
+    }
+
+    .rank-content:first-child {
+        padding-top: 15px;
+    }
+    .rank-content:last-child {
+        padding-bottom: 15px;
+    }
+}

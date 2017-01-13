@@ -1,0 +1,255 @@
+/*
+ * @author: Caesar
+ * @module:
+ *
+ */
+
+$bodyTop: 5em;
+
+@import './lib/normalize';
+
+@import './pure/pure';
+@import './semantic/all';
+
+@import './common/menu';
+@import './common/responsive_breadcrumbs';
+@import './common/style';
+@import './common/editor';
+@import './common/webuploader';
+@import './common/prettify';
+
+
+@import './mmenu/jquery.mmenu';
+@import './common/site';
+
+/*
+
+<input type="text" autocapitalize="off" />
+<input type="text" autocorrect="off" />
+
+ */
+/* 禁止文本缩放 */
+html {
+    // -webkit-text-size-adjust: 100%;
+}
+/* 移动端定义字体的代码, ios,android,winphone都支持 */
+body{
+    font-family:Helvetica;
+}
+/* 1.去除android a/button/input标签被点击时产生的边框 2.去除ios a标签被点击时产生的半透明灰色背景 */
+a,button,input,textarea {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-appearance: none; /* 方法2 */
+    // -webkit-user-modify有个副作用，就是输入法不再能够输入多个字符
+    // -webkit-user-modify:read-write-plaintext-only;
+}
+/*  android 上去掉语音输入按钮 */
+input::-webkit-input-speech-button {display: none}
+/*  解决页面闪白保证动画流畅 */
+.css {
+   -webkit-transform: translate3d(0, 0, 0);
+   -moz-transform: translate3d(0, 0, 0);
+   -ms-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+}
+/*  消除transition闪屏 */
+.css{
+    /*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+    -webkit-transform-style: preserve-3d;
+    /*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
+    -webkit-backface-visibility: hidden;
+}
+//竖屏时使用的样式
+@media all and (orientation:portrait) {
+    .css{}
+}
+
+//横屏时使用的样式
+@media all and (orientation:landscape) {
+    .css{}
+}
+
+
+
+
+
+.ta-left {
+    text-align: left;
+}
+.ta-center {
+    text-align: center;
+}
+.ta-right {
+    text-align: right;
+}
+
+#main {
+    padding-top: $bodyTop;
+    position: absolute;
+    z-index: 9;
+
+}
+
+.breadcrumb {
+    width: 100%;
+    text-align: left;
+    padding: 1em 1em 0 1em !important;
+}
+
+
+// index.html
+#topic_list {
+    background: #FFF;
+    cursor: pointer;
+}
+
+.index-page {
+
+
+    .index-header {
+        padding: 0.5em 1em;
+    }
+
+    .inner {
+        max-width: none;
+        padding: 0.5em 1em !important;
+        width: 100% !important;
+    }
+
+    .last_time {
+        margin-left: 0 !important;
+        padding: 0.5em !important;
+    }
+
+    .topic-tab {
+        margin: 0 1em 0 0;
+    }
+
+    .no-topic {
+        height: 100px;
+        line-height: 100px;
+        // vertical-align: middle;
+    }
+
+    .segment {
+        margin: 1em;
+        overflow: hidden;
+    }
+
+}
+
+
+// message.html
+.message-page {
+
+    margin-right: 0 !important;
+
+    .no-topic {
+        height: 100px;
+        line-height: 72px;
+        margin: 1em;
+        overflow: hidden;
+
+        p {
+            background: #FFF;
+            margin-bottom: 1em;
+        }
+
+    }
+
+
+}
+
+// about.html
+.about-page {
+
+    margin-right: 0 !important;
+
+    .topic {
+        margin: 1em;
+        overflow: hidden;
+    }
+
+
+}
+
+// guide.html
+.guide-page {
+
+    margin-right: 0 !important;
+
+    .topic {
+        margin: 1em;
+        overflow: hidden;
+    }
+
+}
+
+// setting.html
+.setting-page {
+
+    margin-right: 0 !important;
+
+    .segment {
+        margin: 1em;
+        overflow: hidden;
+    }
+
+}
+
+// signin.html
+// signup.html
+.signin-page,
+.signup-page {
+
+    margin-right: 0 !important;
+    a:hover {
+        text-decoration: none;
+    }
+
+    .segment {
+        margin: 1em;
+        overflow: hidden;
+    }
+
+}
+
+// user/topics.html
+// user/replies.html
+// user/index.html
+.user-page {
+
+    margin-right: 0 !important;
+    a:hover {
+        text-decoration: none;
+    }
+
+    .segment {
+        margin: 1em;
+        overflow: hidden;
+    }
+
+}
+
+
+
+// common
+#backtotop {
+    width: 3em;
+    color: #000;
+    padding: 12px 0px 12px 5px;
+    display: none;
+    position: fixed;
+    cursor: pointer;
+    text-align: center;
+    z-index: 20;
+    background-color: rgba(91, 222, 210, 0.77);
+    border-radius: 12px 0px 0px 12px;
+    // margin-right: 1em;
+}
+
+
+
+
+
+

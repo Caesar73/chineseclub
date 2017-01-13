@@ -1,0 +1,86 @@
+
+
+<nav id="menu">
+    <ul id="my-list">
+        <li><a href="/">Home</a></li>
+
+        <% /* %>
+        <li id="my-item"><a href="/getstart">Guide</a></li>
+        <li><a href="/api">API</a></li>
+        <% */ %>
+
+        <%
+        var site_navs = config.site_navs || [];
+        for (var i = 0, l = site_navs.length; i < l; i++) {
+        var nav = site_navs[i];
+        %>
+        <li><a href="<%- nav[0] %>" target="<%- nav[2] %>"><%- nav[1] %></a></li>
+        <% } %>
+
+        <% if (current_user) { %>
+        <li><a href="/setting">Setting</a></li>
+        <li><a href="/signout" data-method="post" rel="nofollow">Sign Out</a></li>
+        <% } else { %>
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="/signin">Sign In</a></li>
+        <% } %>
+
+        <% if (current_user){ %>
+        <li>
+            <a href="/my/messages">
+                Messages
+                <% if (current_user.messages_count) { %>
+                <span class='big messages_count'><%= current_user.messages_count %></span>
+                <% } %>
+            </a>
+        </li>
+        <% } %>
+
+        <% if (current_user) { %>
+        <li>
+            <a id="create_topic_btn" href="/topic/create">
+                <span class='span-success'>发布话题</span>
+            </a>
+        </li>
+        <% } %>
+
+    </ul>
+
+</nav>
+
+<% /* %><% */ %>
+
+<% /* %>
+
+  <div class='panel'>
+    <% if (typeof(user) !== 'undefined' || current_user) { %>
+    <div class='header'>
+      <span class='col_fade'>个人信息</span>
+    </div>
+    <div class='inner'>
+      <%- partial('user/card',{ object: typeof(user) === 'undefined' ? current_user : user, as: 'user' }) %>
+    </div>
+    <% } else { %>
+    <div class='inner'>
+      <p><%= config.description %></p>
+
+      <div>
+        您可以
+        <a href='/signin'>Sign In</a>
+        或
+        <a href='/signup'>Sign Up</a>
+        , 也可以
+        <a href="/auth/github">
+          <span class="span-info">
+            通过 GitHub 登录
+          </span>
+        </a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+<% */ %>
+
+
+
+

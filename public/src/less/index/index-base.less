@@ -1,0 +1,189 @@
+/*
+ * @author: Caesar
+ * @module: Nirtou - Index -simple
+ *
+ */
+
+
+* { margin: 0; padding: 0; }
+li { list-style-type: none; }
+#container {
+    padding: 0; min-height: 100%; max-width: 100%; margin: 0 auto;
+}
+
+.bg-title {
+    background: #98BAD2;
+    height: 12em;
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 0;
+    z-index: 2;
+    text-align: center;
+    overflow: hidden;
+
+    .bg-saying {
+        //background: rgba(243, 239, 239, 0.1);
+        background: rgba(255,255,255,0.5);
+        color: #000; font-size: 17px; text-align: center; padding: 1.5em 0;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 3;
+        width: 100%;
+    }
+    .bg-img {
+        box-sizing: border-box;
+        background: rgb(245, 245, 245);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+}
+
+.pc {
+    .bg-img {
+        //border-left: 2px solid #98BAD2;
+        //border-right: 2px solid #98BAD2;
+        box-shadow: 0 0 25px #416680;
+        width: 960px;
+        margin-left: -480px;
+        //max-width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        z-index: 1;
+    }
+    @media only screen
+      and (min-device-width: 1028px)
+      and (max-device-width: 1960px) {
+        .bg-img {
+            width: 1028px;
+            margin-left: -514;
+        }
+    }
+}
+
+//.bg-title img { height: 36px; position: relative; top: 12px; right: 5px; }
+
+.forget-ul { display: none; }
+.show-forget { display: none; }
+.board-footer a { color: #000; }
+input { outline: none; }
+/*
+#header { border-bottom: 1px solid #C2C2C2; padding: 1em 1.5em 1em 1.5em; }
+*/
+#header {
+    background: rgba(255,255,255,.5);
+    margin: 0 auto; height: 60px; max-width: 100%;
+}
+#header .logo-img { height: 3em; margin-left: 3em; }
+#header .menu { float: right; width: 12em; margin-right: 1em; }
+#header .login { margin-right: 56px; }
+#header .login,
+#header .register {
+    color: #444; cursor: pointer;
+    float: right; font-weight: 600; font-size: 14px;
+    line-height: 60px; margin-left: 0.5em;
+    background: rgba(255,255,255,0.5);
+    line-height: 30px;
+    margin-top: 15px;
+    padding: 1px 5px;
+    border-radius: 4px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+#header .login:hover,
+#header .register:hover,
+#header .login:active,
+#header .register:active,
+#header .login.active,
+#header .register.active {
+    background: rgba(30, 30, 30, 0.6);
+    color: #FFF;
+}
+
+.download-board { margin: 2em 0; overflow: hidden; width: 100%; }
+.download-board a { float: right; margin-left: 2em; }
+
+#dialog {
+    background: rgba(255, 255, 255, 1); display: none; text-align: center;
+    position: fixed; *position: absolute; bottom: 0; left: 50%; z-index: 1009;
+    margin-top: 0; margin-left: -16em; padding: 0 0 5em 0; width: 32em; height: 38em;
+}
+#dialog .board { margin: 2em 2em 0em 2em; }
+#dialog .img-wrapper { width: 100%; height: 10em; margin: 7.25em 0 6.375em 0; }
+#dialog .logo-img { width: 8.75em; }
+#dialog .board-title { overflow: hidden; }
+#dialog .board-title ul { margin-left: 5%; overflow: hidden; width: 90%; border-bottom: 1px solid #dcdcdc; }
+#dialog .board-title ul.forget-ul { border: 0; }
+#dialog .board-title ul li div { color: #434343; cursor: pointer; float: left; font-size: 14px; line-height: 2em; width: 132px; }
+#dialog .board-title ul li.active div { border-bottom: 1px solid #000; }
+#dialog .board-title ul.forget-ul li.active div { border: 0; width: 100%; }
+#dialog .login-board .board-title ul li { width: 50%; overflow: hidden; float: left; }
+#dialog .login-board .board-title ul li.forget { margin-left: 25%; border-bottom: 1px solid #000;}
+#dialog .login-board .board-title ul li.register div { float: right; }
+#dialog .board-body input {
+    border: 0; border-bottom: 1px solid #DCDCDC;
+    font-size: 14px; line-height: 2em; padding-left: 1em;
+    margin: 1px; width: 87%; height: 3.875em;
+}
+#dialog .board-body input.error { border: 1px solid #CE1414; }
+#dialog .board-body input.verncode { display: none; float: left; width: 50%; margin: 1px 4.5%; }
+#dialog .board-body button[type=submit] {
+    border-radius: 2px; border: 0; background: #313131; color: #FFF;
+    cursor: pointer; font-size: 1em; margin: 2em 0 0 0; width: 90%; height: 42px;
+}
+#dialog .board-footer .show-forget { display: block; height: 3.1em; }
+#dialog .board-footer a { line-height: 3em; }
+
+#shadow { position: fixed; *position: absolute; top: 0; left: 0; z-index: 1001; width: 100%; height: 100%; }
+#shadow { background: rgba(236, 236, 236, 0.96); display: none; }
+#shadow .close-btn { cursor: pointer; position: absolute; top: 15px; right: 15px; width: 25px;}
+
+.getcode {
+    border: 0; background: #313131; color: #FFF; cursor: pointer; font-size: 14px;
+    display: none; margin: 1.5em 0 0 0; width: 9em; height: 2.5em;
+}
+
+#ietn-listen {
+    border: 1px solid #444; float: left; font-size: 14px; text-align: center;
+    margin: 1.2em; height: 2em;
+}
+
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+}
+img.bg-img {
+    position: relative;
+    z-index: 1;
+}
+#container {
+    padding-top: 60px;
+}
+div.logo {
+    border: 1px solid #000;
+    display: inline;
+    margin: 0 1em;
+    padding: 0.2em;
+}
+div.logo-img {
+    border: 1px solid #000;
+    box-sizing: border-box;
+    font-size: 4em;
+    padding: 0.2em;
+    margin: 0 auto;
+    width: 50% !important;
+}
+
+
+

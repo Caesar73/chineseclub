@@ -1,0 +1,28 @@
+
+<% console.log(searchs)%>
+
+<% console.log(searchs.length)%>
+    <% if(searchs.length){%>
+    <section class="recommend">
+        <p class="s_title">共<em class="s_red"><%searchs.lenght%></em>条搜索结果</p>
+        <% _.each(searchs, function (item) { %>
+        <a href="#" class="book_detail">
+            <span class="book_cover">
+                <img class="coverImg" src="<%=item.picHref%>" data-src="$!result.picUrl">
+            </span>
+            <span class="summary">
+                 <h1><%=item.name%></h1>
+                <p class="sort"><%=item.author%></p>
+                <p class="line_three"> <%=item.des%></p>
+            </span>
+        </a>
+        <% }); %>
+    </section>
+    <%}else{%>
+    <section class=" recommend empty_tip">
+        <p class="r-title">共<em class="s_red">0</em>条搜索结果</p>
+        <p class="empty_banner"><img src="dist/images/no-book.png"><span class="no_tip">没有找到相关书籍！</span></p>
+    </section>
+    <%}%>
+    <div class="line"></div>
+

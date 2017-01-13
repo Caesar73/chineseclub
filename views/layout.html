@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- meta -->
+<meta charset="utf-8"/>
+<meta name='description' content='<%= config.description %>'>
+<meta name="keywords" content="<%= config.keywords %>"/>
+<!-- see http://smerity.com/articles/2013/where_did_all_the_http_referrers_go.html -->
+<meta name="referrer" content="always">
+
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+<meta name="msapplication-tap-highlight" content="no">
+
+  <%
+  var headers = config.site_headers || [];
+  for (var i = 0, l = headers.length; i < l; i++) {
+  %>
+  <%- headers[i] %>
+  <% } %>
+
+  <link title="RSS" type="application/rss+xml" rel="alternate" href="/rss"/>
+
+  <% if (config.site_icon) { %>
+  <link rel="icon" href="<%- staticFile(config.site_icon) %>" type="image/x-icon"/>
+  <% } %>
+
+  <!-- style -->
+  <%- Loader('/public/stylesheets/index.min.css')
+  .css('/public/libs/bootstrap/css/bootstrap.css')
+  .css('/public/dist/webapp/css/scss/webapp.css')
+  .css('/public/libs/font-awesome/css/font-awesome.css')
+  .done(assets, config.site_static_host, config.mini_assets)
+  %>
+
+  <% if (typeof(topic) !== 'undefined') { %>
+  <title><%= topic.title %> - <%= config.name %></title>
+  <% } else if (typeof(pageTitle) !== 'undefined') { %>
+  <title><%= pageTitle %> - <%= config.name %></title>
+  <% } else { %>
+  <title><%= config.description %></title>
+  <% } %>
+
+  <meta content="_csrf" name="csrf-param">
+  <meta content="<%= csrf %>" name="csrf-token">
+</head>
+<body>
+
+<div id="page">
+    <div class="mm-header">
+        <a href="#menu"></a>
+        Chinese Online School
+    </div>
+    <div class="content">
+        <%- body %>
+<!--
+        <p>
+            <strong>This is a demo.</strong><br>
+            <a href="#" id="add_li">Add a new menu item</a><br>
+            <a href="#" id="add_ul">Add a new submenu</a>
+-->
+
+        </p>
+    </div>
+</div>
+
+
+
+<!-- mmenu -->
+<%- partial('./common/mmenu') %>
+
+<div id='backtotop'>回到顶部</div>
+
+
+<!-- scripts -->
+<%-
+Loader('/public/index.min.js')
+.js('/public/libs/jquery-2.1.0.js')
+.js('/public/libs/lodash.compat.js')
+.js('/public/libs/jquery-ujs.js')
+.js('/public/libs/bootstrap/js/bootstrap.js')
+.js('/public/libs/jquery.caret.js')
+.js('/public/libs/jquery.atwho.js')
+.js('/public/libs/markdownit.js')
+.js('/public/libs/code-prettify/prettify.js')
+.js('/public/libs/qrcode.js')
+.js('/public/javascripts/main.js')
+.js('/public/javascripts/responsive.js')
+.js('/public/libs/jquery.mmenu.js')
+.done(assets, config.site_static_host, config.mini_assets)
+%>
+
+<script type="text/javascript">
+$(function() {
+    function add_new_li() {
+        var li = '<li><a href="#/work">Our work</a></li>';
+
+        //   #my-list was an UL, now is a panel
+        $("#my-list").find( ".mm-listview" ).append( li );
+
+        API.initPanels( $("#my-list") );
+    }
+
+    function add_new_ul() {
+        var ul = '<ul>';
+        ul += '<li><a href="#/about/history">History</a></li>';
+        ul += '<li><a href="#/about/team">The team</a></li>';
+        ul += '<li><a href="#/about/address">Our address</a></li>';
+        ul += '</ul>';
+
+        $("#my-item").append( ul );
+
+        API.initPanels( $("#my-list") );
+    }
+
+    $("#add_li").click(function() {
+        add_new_li();
+        $(this).hide();
+    });
+
+    $("#add_ul").click(function() {
+        add_new_ul();
+        $(this).hide();
+    });
+
+    var API = $('#menu')
+        .mmenu({
+            extensions      : [ 'widescreen', 'theme-white', 'effect-menu-slide', 'pagedim-black' ],
+            counters        : true,
+            dividers        : {
+                fixed           : true
+            },
+            navbar          : {
+                title           : 'MENU'
+            },
+            navbars         : [
+                {
+                    position    : 'top',
+                    content     : ['searchfield']
+                }, {
+                    position    : 'top'
+                }, {
+                    position    : 'bottom',
+                    content     : ['<div>Created by @<a href="http://www.zhangjiayi.net/" style="text-decoration: underline;" target="_blank">Caesar</a></div>']
+                }
+            ],
+            searchfield     : {
+                resultsPanel    : true
+            },
+            setSelected     : {
+                parent          : true
+            }
+        }, {
+            searchfield     : {
+                clear           : true
+            }
+        })
+        .data( 'mmenu' );
+});
+</script>
+</body>
+
+<script>
+  $(document).ready(function () {
+    var $nav = $('.pagination');
+    var current_page = $nav.attr('current_page');
+    if (current_page) {
+      $nav.find('li').each(function () {
+        var $li = $(this);
+        var $a = $li.find('a');
+        if ($a.html() == current_page) {
+          $li.addClass('active');
+          $a.removeAttr('href');
+        }
+      });
+    }
+  });
+</script>
+
+</html>

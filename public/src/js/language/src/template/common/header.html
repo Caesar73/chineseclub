@@ -1,0 +1,16 @@
+<!--
+<header class="header head_top">
+    <a href="#index" class=""><i></i></a>
+</header>
+-->
+<div class="nav-line-bar">
+    <% if (_type == 'studying') { %>
+    <a href="javascript:void(0);" class="active">学习中</a>
+    <a href="#index/webapp/completed">已完成</a>
+    <% } else if (_type == 'completed') { %>
+    <a href="#index/webapp/studying">学习中</a>
+    <a href="javascript:void(0);" class="active">已完成</a>
+    <% } else { %>
+    <a href="#free/webapp" class="free-bar">公共课</a>
+    <% }; %>
+</div>

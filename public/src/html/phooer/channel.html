@@ -1,0 +1,268 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="N1Mmy9oxtXl-osJ42t8eKkf6Gj3NdFPm9dYdSEb7GFc">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+<link rel="apple-touch-icon-precomposed" href="http://s2.pstatp.com/r2/image/app/news_article_mobile.png">
+<link rel="shortcut icon" href="http://s2.pstatp.com/image/toutiao_mobile/short_cut_icon.png" type="image/x-icon">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="">
+<meta name="keywords" content="觅拓,东欧,觅拓东欧">
+<link rel="stylesheet" href="/dist/webapp/css/phooer.css">
+<title>选择频道 - 觅拓东欧</title>
+<script src="http://s2.pstatp.com/js/lib/jquery-2.0.0.min.js"></script>
+<script>
+/*** Timeago is a jQuery plugin that makes it easy to support automatically***/
+
+/** jqModal - Minimalist Modaling with jQuery  (http://dev.iceburg.net/jquery/jqModal/) **/
+
+//jquery cookie plugin
+jQuery.cookie=function(name,value,options){if(typeof value!="undefined"){options=options||{};if(value===null){value="";options.expires=-1}var expires="";if(options.expires&&(typeof options.expires=="number"||options.expires.toUTCString)){var date;if(typeof options.expires=="number"){date=new Date();date.setTime(date.getTime()+(options.expires))}else{date=options.expires}expires="; expires="+date.toUTCString()}var path=options.path?"; path="+options.path:"";var domain=options.domain?"; domain="+options.domain:"";var secure=options.secure?"; secure":"";document.cookie=[name,"=",encodeURIComponent(value),expires,path,domain,secure].join("")}else{var cookieValue=null;if(document.cookie&&document.cookie!=""){var cookies=document.cookie.split(";");for(var i=0;i<cookies.length;i++){var cookie=jQuery.trim(cookies[i]);if(cookie.substring(0,name.length+1)==(name+"=")){cookieValue=decodeURIComponent(cookie.substring(name.length+1));break}}}return cookieValue}};
+//检测系统设定
+//mobile safari中设置"不跟踪cookie", 不会禁用cookie,而会禁用localstrage.
+;(function(){try{var t = window.localStorage; window.localStorageEnabled = true}catch (e) {window.localStorageEnabled = false}})();
+
+window.scrollTop = function(){
+    window.scrollTo(0,0);
+};
+
+//工具
+function initScrollEvents () {
+    var scrollEndTimer, offset = 100;
+    function globalScroll(e){
+        var theDocumentHeight = document.height || document.body.scrollHeight;
+
+        if( scrollY >= theDocumentHeight - innerHeight - offset)  $(window).trigger("scrollBottom", e.type);
+        if( e.type == 'scroll'){
+            if(scrollEndTimer) clearTimeout(scrollEndTimer);
+            scrollEndTimer = setTimeout(function(){ $(window).trigger("scrollEnd") },300);
+        }
+    };
+    $(window).on("scroll load afterflow",globalScroll);
+};
+
+animateScrollTo = function(option){
+    var top = 0;
+    if(option){
+        if(option.offset)   top += option.offset;
+        if(option.obj)      top += option.obj.offset().top;
+    };
+    setTimeout(function(){
+        $("html, body").animate({ scrollTop: top }, 400);
+    },0)
+    return this;
+};
+
+function debug (s) {
+    var $d = $("#debug");
+    if(!$d.length){
+        $("<div id='debug'/>").appendTo("body");
+        $d = $("#debug");
+    };
+    $d.text(s);
+};
+
+function global_tip (str, delay) {
+    delay = delay || 3000;
+    var p = $("<div class='global_tip'/>").appendTo("body"),
+        h = $("header"),
+        tip_top = 0;
+    if(h.length) tip_top = Math.max(0, h.height());
+    p.show().text(str).css("top",tip_top);
+    setTimeout(function(){
+        p.fadeOut(function(){
+            p.remove();
+        });
+    },delay);
+};
+</script>
+<!--
+
+
+<link rel="stylesheet" type="text/css" href="http://s2.pstatp.com/css/toutiao/wap.css?ver=20150729">
+
+-->
+
+
+
+<style type="text/css">
+
+</style>
+
+</head>
+
+<body class="iphone">
+
+
+
+<header id="header" class="">
+    <div class="top_bar channel">
+        <div class="abs_l">
+            <a class="btn back" href="/src/html/phooer/index.html"></a>
+        </div>
+        <div class="abs_m">
+            频道管理
+        </div>
+    </div>
+</header>
+
+
+
+
+<div id="container" class="con">
+    <div class="msg">选择觅拓类型</div>
+    <ul class="list choose-type" data-toggle="">
+        <li class="fixed" data-category="type_all"><a>全部</a></li>
+        <li data-category="type_boy"><a class="long">只看帅哥</a></li>
+        <li data-category="type_girl"><a class="long">只看美女</a></li>
+    </ul>
+
+    <div class="msg">点击删除频道</div>
+    <!--
+    -->
+    <ul class="list" data-toggle="menu-selected">
+        <li class="fixed" data-category="__all__"><a>推荐</a></li>
+    </ul>
+
+
+    <div class="msg tip" disabled-message="最多#n#个频道,请先删除一些" origin-message="点击添加以下频道">点击添加以下频道</div>
+    <!--
+    -->
+    <ul class="list" data-toggle="menu-unselected"></ul>
+
+</div>
+
+
+<script>
+var container = $('#container');
+container
+.on('click', '.list.choose-type li', function (e) {
+    var me = $(this);
+    var fa = container.find('.list.choose-type');
+    fa.find('.fixed').removeClass('fixed');
+    me.addClass('fixed');
+    var s = me.data('category');
+    localStorage["chooseType"] = s;
+})
+;
+
+var SortMenu = {
+    init : function (obj) {
+        this.category = obj.category;
+        this.categoryName = obj.categoryName;
+        this.$con = $(obj.container);
+        this.$selectedList = $(obj.selected);
+        this.$unSelectedList = $(obj.unselected);
+        this.$message = $(obj.message);
+        this.tmpl = obj.tmpl;
+        this.count = 0;
+
+        this.$message.text(this.$message.attr("origin-message"));
+
+        this.restoreOrder(obj);
+
+        this.addEvents(obj);
+    },
+
+    addEvents : function(obj){
+        var _this = this, lock = false;
+
+        this.$selectedList.on("click",obj.itemSelector,function(){
+            if(lock) return;
+            lock = true;
+
+            var $this = $(this), that = this;
+            if($this.is(obj.itemExclude)) return false;
+            animateAdd(that,_this.$unSelectedList, function(){ animateRemove(that) });
+            var s = _this.$message.attr("origin-message");
+            _this.$message.text(s).removeClass("alert");
+            _this.count -= 1;
+            return false;
+        });
+
+        this.$unSelectedList.on("click",obj.itemSelector,function(){
+            if(lock) return;
+            lock = true;
+
+            var that = this;
+            if(_this.count == obj.maxCount){
+                var s = _this.$message.attr("disabled-message");
+                _this.$message.text(s.replace("#n#", obj.maxCount+1 )).addClass("alert");
+                return false;
+            };
+            animateAdd(that,_this.$selectedList, function(){ animateRemove(that) });
+            _this.count += 1;
+            return false;
+        });
+
+        function saveOrder(){
+            var s = [];
+            _this.$selectedList.find(obj.itemSelector).each(function(){
+                s.push($(this).attr("data-category"));
+            });
+            s = s.join(",");
+            localStorage["menuDefaults"] = s;
+            return s;
+        };
+
+        function animateAdd(obj,$dest,callback){
+            var $obj = $(obj);
+            $obj.appendTo($dest);
+            if(callback) callback();
+        };
+
+        function animateRemove(obj){
+            saveOrder();
+            lock = false;
+        }
+    },
+
+    restoreOrder : function(obj){
+        var storedMenu = localStorageEnabled ?localStorage["menuDefaults"]:"", defaults;
+        defaults = storedMenu ? storedMenu.split(",") : obj.category.slice(0,obj.defaultCount);
+
+        for(var i = 0; i<obj.category.length; i++){
+            var t = obj.category[i];
+            if($.inArray(t,defaults) == -1){
+                var s = this.getItemString({ category : t, name : obj.categoryName[i] });
+                this.$unSelectedList.append(s)
+            }
+        };
+
+        for(var i = 0; i<defaults.length; i++){
+            var t = defaults[i],
+                index = $.inArray(t,obj.category);
+
+            if(index > -1){
+                var s = this.getItemString({ category : t, name : obj.categoryName[index] });
+                this.$selectedList.append(s);
+                this.count += 1;
+            }
+        }
+    },
+
+    getItemString : function(obj){
+        var tmpl = this.tmpl;
+        for(k in obj) tmpl = tmpl.replace("#"+k+"#", obj[k]);
+        return tmpl;
+    }
+};
+</script>
+<script>
+SortMenu.init({
+        category    : ['latvia', 'lithuania', 'estonia', 'belarus', 'ukraine'],
+        categoryName: ['拉脱维亚','立陶宛','爱沙尼亚', '白俄罗斯', '乌克兰'],
+        // tmpl        : "<li data-category='#category#'><a href='javascript:void(0);'>#name#</a></li>",
+        tmpl        : "<li data-category='#category#'><a>#name#</a></li>",
+        maxCount    : 5,
+        defaultCount: 3,
+        container   : ".con",
+        message     : ".tip",
+        selected    : "[data-toggle=menu-selected]",
+        unselected  : "[data-toggle=menu-unselected]",
+        itemSelector: "li",
+        itemExclude : ".fixed"
+});
+</script>
+</body>
+</html>

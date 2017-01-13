@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="Content-Type"    content="text/html; charset=utf-8"/>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' >
+<meta http-equiv='Cache-Control'   content='no-siteapp' >
+<meta name="renderer"    content="webkit">
+<meta name="viewport"    content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="description" content="">
+<meta name='author'      content='caesar, rayanddoctor@126.com' >
+<meta name='keywords'    content=''>
+<title>觅拓游记</title>
+<link rel="stylesheet" href="/dist/webapp/css/blog.css">
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="/dist/css/pure-lib-old-ie.css">
+<![endif]-->
+<style type="text/css">
+.mod-navs a {
+    width: 50%;
+}
+</style>
+<style id="tips">
+
+</style>
+</head>
+<body class="">
+<script type="text/javascript">
+;(function (win, doc) {
+    var calc = function(){
+        var docElement = doc.documentElement;
+        var clientWidthValue = docElement.clientWidth > 480 ? 480 : docElement.clientWidth;
+        docElement.style.fontSize = 10*(clientWidthValue/320) + 'px';
+    }
+    calc();
+    win.addEventListener('resize',calc);
+})(window, document, null);
+;(function (win, doc) {
+    win.resizeContainer = function (type) {
+        // alert(1);
+        var _type = type || '0';
+        var bs = doc.getElementById('bootstrap');
+        var ct = doc.getElementById('container');
+        var nv = doc.getElementById('mod-navs');
+        var ah = doc.body.offsetHeight;
+        // var ah = win.screen.availHeight;
+        // alert(ah);
+        if (_type == '100') {
+            // bs.style.height    = ah + 'px';
+            // ct.style.minHeight = ah/2 + 'px';
+            // ct.style.height    = ah/2 + 'px';
+            // alert(ct.style.height);
+        }
+        else {
+            // bs.style.height    = ah + 'px';
+            // ct.style.minHeight = ah + 'px';
+            // ct.style.minHeight = ah - nv.offsetHeight + 'px';
+            // ct.style.height =
+        }
+    }
+    // ct.style.minHeight = win.screen.availHeight - nv.offsetHeight*2 + 'px';
+    // ct.style.minHeight = win.screen.availHeight + 'px';
+    // console.log('nv: ' + nv.offsetHeight);
+    // console.log('bs: ' + bs);
+    // console.log('wh: ' + win.screen.availHeight);
+})(window, document, null);
+</script>
+<script>
+//console.log(document.body.className);
+//alert(navigator.userAgent);
+;(function(ua, w, d, undefined) {
+    var _ua = ua.toLowerCase();
+    //alert(_ua);
+    if ( (/iphone|ipod|ipad/).test(_ua) ) {
+        d.body.className = 'apple mobile';
+        return;
+    }
+    else if ( (/android|blackberry|opera mini|iemobile/).test(_ua) ) {
+        d.body.className = 'android mobile';
+        if ( _ua.indexOf('micromessenger') > -1 ) {
+            //alert('wechat');
+            d.body.className = 'wechat mobile';
+        }
+        return;
+    }
+    else if ( (/mobile/).test(_ua) ) {
+        d.body.className = 'mobile';
+        if ( (_ua.indexOf('micromessenger') > -1) || (_ua.indexOf('baidu') > -1) ) {
+            //alert('wechat');
+            d.body.className = 'wechat mobile';
+        }
+        return;
+    }
+    else {
+        d.body.className = 'pc';
+        if ( _ua.indexOf('micromessenger') > -1 ) {
+            //alert('wechat');
+            d.body.className = 'wechat mobile';
+        }
+        return;
+    }
+
+})(navigator.userAgent || navigator.vendor || window.opera, window, document);
+//console.log(document.body.className);
+//alert(document.body.className);
+</script>
+<div id="container" class="blog">
+
+<div id="bootstrap" class="bootstrap" style="">
+    <div class="boot-gps">
+        <div class="boot-gps-icon"></div>
+        加载中
+    </div>
+</div>
+
+<div id="mask" style="/* display: none; */">
+    <div id="loader" style="/* display: none; */">
+        <div class="sk-spinner sk-spinner-three-bounce">
+            <div class="sk-bounce1"></div>
+            <div class="sk-bounce2"></div>
+            <div class="sk-bounce3"></div>
+        </div>
+    </div>
+</div>
+
+<ul id="mod-navs" class="mod-navs theme-spline-top" style="display: block;">
+    <a href="#index/webapp" class="navs-item navs-item-home navs-current" data-key="home" style="">
+        <div class="navs-bubble"></div>
+        <span>游记</span>
+    </a>
+    <!--
+    <a href="/spa/menu" class="navs-item navs-item-menu " data-key="menu" style="width:25%;">
+        <div class="navs-bubble"></div>闪送超市
+    </a>
+    <a href="/spa/cart" class="navs-item navs-item-cart " data-key="cart" style="width:25%;">
+        <div class="navs-bubble" style="display: none;"></div>购物车
+    </a>
+    -->
+    <a href="#mine/webapp" class="navs-item navs-item-mine " data-key="mine" style="">
+        <div class="navs-bubble"></div>
+        <span>我的</span>
+    </a>
+
+<a href="#write/webapp" id="pencil" class="pencil">
+    <img src="/img/pencil.jpg" alt="写游记" />
+</a>
+
+</ul>
+<script>
+window.resizeContainer();
+</script>
+
+<div id="header">
+
+    <header class="header head_top">
+        <a href="#index" class=""><i></i></a>
+    </header>
+
+    <div class="search-bar">
+        <label for="search">全部</label>
+        <input id="search" class="checkbox-dialog" type="checkbox" />
+        <div class="dialog">
+            <section class="style_list">
+                <nav>
+                    <li>
+                        <a href="#index/webapp/all"     data-type="all" class="sort_green sort_current green_current">全部</a>
+                        <a href="#index/webapp/europe"  data-type="europe" class="sort_green">欧洲</a>
+                        <a href="#index/webapp/america" data-type="america" class="sort_green">美洲</a>
+                        <a href="#index/webapp/aunz"    data-type="aunz" class="sort_green">澳新</a>
+                    </li>
+                    <li>
+                        <a href="#index/webapp/kojp"   data-type="kojp" class="sort_green">日韩</a>
+                        <a href="#index/webapp/seasia" data-type="seasia" class="sort_green">东南亚</a>
+                        <a href="#index/webapp/ship"   data-type="ship" class="sort_green">游轮</a>
+                        <a href="#index/webapp/china"  data-type="china" class="sort_green">国内</a>
+                    </li>
+                </nav>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="list" class="list-list pure-g"></div>
+<div id="list-detail"></div>
+
+<div id="mine"></div>
+<div id="mine-list-header"></div>
+<div id="mine-list" class="mine-list"></div>
+
+<div id="myinfo"></div>
+<div id="about"></div>
+
+<div id="write"></div>
+
+
+</div>
+</body>
+<script data-main="/dist/webapp/js/config/blog" src="/dist/webapp/js/require.js"></script>
+<script>
+
+
+</script>
+</html>
