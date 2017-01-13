@@ -177,12 +177,23 @@ if (config.debug) {
 }
 
 if (!module.parent) {
+    /*
   app.listen(config.port, function () {
     logger.info('NodeClub listening on port', config.port);
     logger.info('God bless love....');
     logger.info('You can debug your app with http://' + config.hostname + ':' + config.port);
     logger.info('');
   });
+*/
+  // app.set('port', (process.env.PORT || 5000));
+
+  app.listen(process.env.PORT, function () {
+    logger.info('NodeClub listening on port', process.env.PORT);
+    // logger.info('God bless love....');
+    // logger.info('You can debug your app with http://' + config.hostname + ':' + config.port);
+    // logger.info('');
+  });
+
 }
 
 module.exports = app;
