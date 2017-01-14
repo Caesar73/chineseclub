@@ -9529,3 +9529,4 @@ Started 2017-01-12T10:40:29.332Z GET /?tab=job ::1
 [2017-01-12 12:40:29.343] [DEBUG] cheese - Cache set {"tab":"job","deleted":false}pages [32m0ms[39m
 [2017-01-12 12:40:29.348] [INFO] cheese - Render view index [32m(5ms)[39m
 [2017-01-12 12:40:29.349] [INFO] cheese - Completed 200 [32m(17ms)[39m
+[2017-01-13 22:03:45.839] [INFO] cheese - NodeClub listening on port undefined

@@ -36,13 +36,20 @@ var config = {
   cnzz_tracker_id: '',
 
   // mongodb 配置
-  db: 'mongodb://127.0.0.1/node_club_dev',
+  // db: 'mongodb://127.0.0.1/node_club_dev',
+  db: 'mongodb://heroku_bblfrplq:ray19888@ds035046.mlab.com:35046/heroku_bblfrplq',
+  //  mongodb://heroku_bblfrplq:<password>@ds012345-a0.mlab.com:56789,ds012345-a1.mlab.com:56790/admin?replicaSet=rs-ds012345
+  //  mongodb://<dbuser>:<dbpassword>@ds035046.mlab.com:35046/heroku_bblfrplq
 
   // redis 配置，默认是本地
-  redis_host: '127.0.0.1',
-  redis_port: 6379,
+  // redis_host: '127.0.0.1',
+  // redis_port: 6379,
+  // redis_db: 0,
+  // redis_password: '',
+  redis_host: 'porgy.redistogo.com',
+  redis_port: 9720,
   redis_db: 0,
-  redis_password: '',
+  redis_password: 'f86c9b9c5555c0e58b3bab136ff681e0',
 
   session_secret: 'ilovehuyue', // 务必修改
   auth_cookie_name: 'node_club',
